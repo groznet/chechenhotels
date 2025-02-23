@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Гостиницы Чечни - Отели в Грозном</title>
+    <!-- Мета-теги для SEO -->
+    <meta name="description" content="Все лучшие отели в Грозном и Чечне. Выберите гостиницу в Грозном из списка всех гостиниц Чеченской Республики">
+    <meta name="keywords" content="гостиницы Чечни, лучшие отели в Грозном, отели в Чечне">
+    <!-- CSS стили -->
+    <link rel="stylesheet" href="fonts.css">
+    <style>
+       
+        header,
+        section,
+        footer {
+            padding: 15px;
+        }
+
+        .midbar {
+            margin-bottom: 1em;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+            display: inline-block;
+            margin-right: 1em;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .branding {
+            display: flex;
+            align-items: center;
+        }
+
+        .branding .site-name h1 {
+            margin-right: 10px;
+            position: relative;
+            left: -44px;
+            font-size: 36px;
+            top: -5px;
+        }
+
+        hr {
+            border-top: solid 1px #eee !important;
+        }
+
+        .logo_h_letter {
+            font-size: 30px !important;
+        }
+
+        img {
+            width: 100%;
+        }
+    </style>
+</head>
+<body style="margin:0">
+    <header>
+        <div class="midbar">
+            <div class="branding">
+                <div class="logo">
+                    <img src="images/Отели-в-Чечне-3.png" alt="Отели в Чечне">
+                </div>
+                <div class="site-name">
+                    <h1><span style="color:#2B7338; font-family: 'Times New Roman', Times, serif;"><span style="color:#fff">C<span style="font-size: 30px;">h</span></span>echen</span><span style="color:#DA251D">Hotels</span></h1>
+                </div>
+            </div>
+        </div>
+        <nav class="menu">
+            <a href="index.html">Главная</a>
+            <a href="#">Отели</a>
+            <a href="places.html">Места</a>
+            <a href="#">О Проекте</a>
+            <a href="#">Контакты</a>            
+        </nav>
+    </header>
+    <hr>
+    <main>
+
+        <section id="places">
+            <h1>Достопримечательности Чеченской Республики</h1>
+            <img src="images/attractions/Сердце Чечни.jpg" alt="Мечеть Сердце Чечни">
+            <img src="images/attractions/Мечеть имени Аймани Кадыровой.jpg" alt="Мечеть имени Аймани Кадыровой">
+            <img src="images/attractions/Проспект им. Махмуда Эсамбаева.jpg" alt="Проспект им. Махмуда Эсамбаева">
+            <img src="images/attractions/Мечеть Гордость мусульман им. Пророка Мухаммеда.jpg" alt="Мечеть Гордость мусульман им. Пророка Мухаммеда">
+            <img src="images/attractions/Государственная галерея им. А.А. Кадырова.jpg" alt="Государственная галерея им. А.А. Кадырова">
+            <img src="images/attractions/Лестница в небеса.jpg" alt="Лестница в небеса">
+            <img src="images/attractions/Город мертвых Цой Педе.jpg" alt="Город мертвых Цой Педе">
+            <img src="images/attractions/Хойский Историко-Архитектурный Комплекс.jpg" alt="Хойский Историко-Архитектурный Комплекс">
+            <img src="images/attractions/Музей Ахмат-Хаджи Кадырова.jpg" alt="Музей Ахмат-Хаджи Кадырова">
+            <img src="images/attractions/Автодром «Крепость Грозная».jpg" alt="Автодром «Крепость Грозная»">
+            <img src="images/attractions/Ушкалойские башни близнецы.jpg" alt="Ушкалойские башни близнецы">
+        </section>
+
+        <section id="contact">
+            <h2>Свяжитесь с нами</h2>
+            <p>Если у вас есть вопросы или вы хотите забронировать номер, не стесняйтесь обращаться.</p>
+            <!-- Форма обратной связи -->
+            <form action="mailto:info@chechenhotels.ru" method="post" enctype="text/plain">
+                <table>
+                    <tr>
+                        <td><label for="name">Имя:</label></td>
+                        <td><input type="text" id="name" name="name" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="email">Email:</label></td>
+                        <td><input type="email" id="email" name="email" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="message">Вопрос:</label></td>
+                        <td><textarea id="message" name="message" required></textarea></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><button type="submit">Отправить</button></td>
+                    </tr>
+                </table>
+            </form>
+        </section>
+    </main>
+
+    <hr>
+    <footer>
+        <p>&copy; 2023 Отели Чечни. Все права защищены.</p>
+    </footer>
+</body>
+</html>
