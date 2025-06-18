@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отели Чеченской Республики | Chechen Hotels</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e3a8a',
+                        secondary: '#0f766e',
+                        accent: '#f59e0b',
+                        light: '#f8fafc',
+                        dark: '#0f172a'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Montserrat', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .hotel-bg {
+            background-image: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=1800&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        .hotel-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hotel-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .rating-stars {
+            color: #f59e0b;
+        }
+        .feature-icon {
+            background-color: rgba(30, 58, 138, 0.1);
+        }
+        .btn-primary {
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .filter-section {
+            transition: all 0.3s ease;
+        }
+        .filter-toggle {
+            display: none;
+        }
+        .price-slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 8px;
+            border-radius: 4px;
+            background: #e2e8f0;
+            outline: none;
+        }
+        .price-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #1e3a8a;
+            cursor: pointer;
+        }
+        .price-slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #1e3a8a;
+            cursor: pointer;
+        }
+        @media (max-width: 768px) {
+            .filter-toggle {
+                display: block;
+            }
+            .filter-section {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 80%;
+                height: 100vh;
+                z-index: 100;
+                background: white;
+                padding: 1.5rem;
+                overflow-y: auto;
+                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            }
+            .filter-section.active {
+                left: 0;
+            }
+            .filter-overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.5);
+                z-index: 99;
+            }
+            .filter-overlay.active {
+                display: block;
+            }
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+</head>
+<body class="font-sans bg-light text-dark">
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50" x-data="{ open: false }">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center py-4">
+                
+                <!-- Лого -->
+                <div class="flex items-center justify-between w-full md:w-auto">
+                    <div class="flex items-center">
+                        <img class="w-11" src="images/logo-icon.png" alt="">
+                    <a href="index.html"><h1 class="ml-1 text-xl font-bold text-primary">Chechen<span class="text-accent">Hotels</span></h1></a>
+                    </div>
+
+                    <button class="block md:hidden bg-light border border-gray-200 rounded-lg p-2">
+                        <i class="fas fa-user text-primary"></i>
+                    </button>
+
+                    <!-- Кнопка бургера -->
+                    <button class="md:hidden text-primary" @click="open = !open">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+
+                <!-- Навигация -->
+                <nav 
+                    class="w-full mt-4 flex-col space-y-2 md:mt-0 md:flex md:flex-row md:items-center md:space-x-8 md:space-y-0 md:w-auto"
+                    :class="{ 'flex': open, 'hidden': !open }">
+                    <a href="/" class="font-medium text-primary hover:text-accent transition">Главная</a>
+                    <a href="hotels.html" class="font-medium hover:text-accent transition">Все отели</a>
+                    <a href="best-hotels.html" class="font-medium hover:text-accent transition">⭐ Лучшие отели</a>
+                    <a href="about.html" class="font-medium hover:text-accent transition">О проекте</a>
+                    <a href="blog.html" class="font-medium hover:text-accent transition">Блог</a>
+                    <a href="contact.html" class="font-medium hover:text-accent transition">Контакты</a>
+                </nav>
+
+                <!-- Кнопки справа -->
+                <div 
+                    class="w-full mt-4 flex justify-start md:justify-end md:items-center space-x-4 md:mt-0 md:w-auto"
+                    :class="{ 'flex': open, 'hidden': !open, 'md:flex': true }"
+                    >
+                    <button class="bg-primary hover:bg-primary/90 text-white px-5 py-2 rounded-lg font-medium transition md:inline-block">
+                        Добавить отель
+                    </button>
+                    <button class="hidden md:block bg-light border border-gray-200 rounded-lg p-2">
+                        <i class="fas fa-user text-primary"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hotel-bg text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6 font-display">Все отели Чеченской Республики</h1>
+            <p class="text-xl max-w-2xl mx-auto mb-6 opacity-90">Найдите идеальный отель по вашим критериям</p>
+            
+            <!-- Quick Search -->
+            <div class="max-w-3xl mx-auto bg-white rounded-xl shadow-xl p-2 flex">
+                <input type="text" placeholder="Поиск по названию отеля" class="flex-grow px-6 py-4 text-dark rounded-lg focus:outline-none">
+                <button class="bg-accent hover:bg-accent/90 text-white font-bold py-4 px-8 rounded-lg transition">
+                    Найти
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row gap-8">
+                <!-- Filters Section -->
+                <div class="filter-section w-full md:w-80 flex-shrink-0 bg-white rounded-xl shadow-lg p-6 h-fit">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-xl font-bold font-display">Фильтры</h2>
+                        <button class="filter-close md:hidden text-gray-500">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- Location Filter -->
+                    <div class="mb-6">
+                        <h3 class="font-bold mb-3">Город</h3>
+                        <div class="space-y-2">
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-2 rounded text-primary" checked>
+                                <span>Грозный</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-2 rounded text-primary">
+                                <span>Аргун</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-2 rounded text-primary">
+                                <span>Гудермес</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-2 rounded text-primary">
+                                <span>Шали</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-2 rounded text-primary">
+                                <span>Урус-Мартан</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- Price Filter -->
+                    <div class="mb-6">
+                        <h3 class="font-bold mb-3">Цена за ночь</h3>
+                        <input type="range" min="0" max="10000" value="5000" class="price-slider mb-4">
+                        <div class="flex justify-between text-sm">
+                            <span>0 руб.</span>
+                            <span>5000 руб.</span>
+                            <span>10000+ руб.</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Rating Filter -->
+                    <div class="mb-6">
+                        <h3 class="font-bold mb-3">Рейтинг</h3>
+                        <div class="space-y-2">
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-2 rounded text-primary" checked>
+                                <div class="rating-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span class="ml-2 text-gray-600">(9+)</span>
+                                </div>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-2 rounded text-primary">
+                                <div class="rating-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span class="ml-2 text-gray-600">(8+)</span>
+                                </div>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-2 rounded text-primary">
+                                <div class="rating-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span class="ml-2 text-gray-600">(7+)</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- Facilities Filter -->
+                    <div class="mb-6">
+                        <h3 class="font-bold mb-3">Удобства</h3>
+                        <div class="space-y-2">
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-2 rounded text-primary">
+                                <span>Wi-Fi</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-2 rounded text-primary">
+                                <span>Парковка</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-2 rounded text-primary">
+                                <span>Бассейн</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-2 rounded text-primary">
+                                <span>Ресторан</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-2 rounded text-primary">
+                                <span>SPA</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-2 rounded text-primary">
+                                <span>Завтрак включен</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- Hotel Type Filter -->
+                    <div class="mb-6">
+                        <h3 class="font-bold mb-3">Тип размещения</h3>
+                        <div class="space-y-2">
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-2 rounded text-primary" checked>
+                                <span>Отель</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-2 rounded text-primary">
+                                <span>Гостевой дом</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-2 rounded text-primary">
+                                <span>Апартаменты</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-2 rounded text-primary">
+                                <span>Хостел</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <button class="w-full bg-primary hover:bg-primary/90 text-white py-3 rounded-lg font-medium transition">
+                        Применить фильтры
+                    </button>
+                    <button class="w-full mt-3 bg-gray-100 hover:bg-gray-200 text-gray-700 py-3 rounded-lg font-medium transition">
+                        Сбросить
+                    </button>
+                </div>
+                
+                <!-- Filter Overlay for Mobile -->
+                <div class="filter-overlay"></div>
+                
+                <!-- Hotels List -->
+                <div class="flex-grow">
+                    <!-- Filter Bar -->
+                    <div class="bg-white rounded-xl shadow-lg p-4 mb-8 flex flex-wrap items-center justify-between">
+                        <div class="flex items-center mb-4 md:mb-0">
+                            <button class="filter-toggle bg-primary text-white px-4 py-2 rounded-lg mr-4">
+                                <i class="fas fa-filter mr-2"></i> Фильтры
+                            </button>
+                            <span class="text-gray-600">Найдено: <span class="font-bold">24</span> отеля</span>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <span class="mr-3 text-gray-600">Сортировать:</span>
+                            <select class="bg-gray-100 border-0 rounded-lg px-4 py-2 focus:ring-2 focus:ring-primary">
+                                <option>По рейтингу (высокий)</option>
+                                <option>По рейтингу (низкий)</option>
+                                <option>По цене (низкая)</option>
+                                <option>По цене (высокая)</option>
+                                <option>По названию (А-Я)</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <!-- Hotels Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Hotel Card 1 -->
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden hotel-card">
+                            <div class="relative">
+                                <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Гранд Отель Грозный" class="w-full h-56 object-cover">
+                                <div class="absolute top-4 right-4 bg-accent text-white px-3 py-1 rounded-lg font-bold">
+                                    9.8
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <h3 class="text-xl font-bold">Гранд Отель Грозный</h3>
+                                    <div class="text-primary font-bold">от 4500₽</div>
+                                </div>
+                                <p class="text-gray-600 mt-2 flex items-center">
+                                    <i class="fas fa-map-marker-alt text-primary mr-2"></i> 
+                                    Грозный, пр. Ахмата Кадырова
+                                </p>
+                                <div class="mt-4 flex items-center">
+                                    <div class="rating-stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <span class="ml-2 text-gray-600">(124 отзыва)</span>
+                                </div>
+                                <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Wi-Fi</span>
+                                    <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Бассейн</span>
+                                    <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">SPA</span>
+                                </div>
+                                <button class="mt-6 w-full bg-primary hover:bg-primary/90 text-white py-3 rounded-lg font-medium transition btn-primary">
+                                    Подробнее
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Hotel Card 2 -->
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden hotel-card">
+                            <div class="relative">
+                                <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Аргун Плаза" class="w-full h-56 object-cover">
+                                <div class="absolute top-4 right-4 bg-accent text-white px-3 py-1 rounded-lg font-bold">
+                                    9.5
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <h3 class="text-xl font-bold">Аргун Плаза</h3>
+                                    <div class="text-primary font-bold">от 3800₽</div>
+                                </div>
+                                <p class="text-gray-600 mt-2 flex items-center">
+                                    <i class="fas fa-map-marker-alt text-primary mr-2"></i> 
+                                    Аргун, ул. Мира
+                                </p>
+                                <div class="mt-4 flex items-center">
+                                    <div class="rating-stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <span class="ml-2 text-gray-600">(98 отзывов)</span>
+                                </div>
+                                <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Парковка</span>
+                                    <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Ресторан</span>
+                                    <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Конференц-зал</span>
+                                </div>
+                                <button class="mt-6 w-full bg-primary hover:bg-primary/90 text-white py-3 rounded-lg font-medium transition btn-primary">
+                                    Подробнее
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Hotel Card 3 -->
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden hotel-card">
+                            <div class="relative">
+                                <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Континент Шали" class="w-full h-56 object-cover">
+                                <div class="absolute top-4 right-4 bg-accent text-white px-3 py-1 rounded-lg font-bold">
+                                    9.3
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <h3 class="text-xl font-bold">Континент Шали</h3>
+                                    <div class="text-primary font-bold">от 3200₽</div>
+                                </div>
+                                <p class="text-gray-600 mt-2 flex items-center">
+                                    <i class="fas fa-map-marker-alt text-primary mr-2"></i> 
+                                    Шали, ул. Лермонтова
+                                </p>
+                                <div class="mt-4 flex items-center">
+                                    <div class="rating-stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <span class="ml-2 text-gray-600">(87 отзывов)</span>
+                                </div>
+                                <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Тренажерный зал</span>
+                                    <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Завтрак включен</span>
+                                    <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Бизнес-центр</span>
+                                </div>
+                                <button class="mt-6 w-full bg-primary hover:bg-primary/90 text-white py-3 rounded-lg font-medium transition btn-primary">
+                                    Подробнее
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Hotel Card 4 -->
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden hotel-card">
+                            <div class="relative">
+                                <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Грозный Сити" class="w-full h-56 object-cover">
+                                <div class="absolute top-4 right-4 bg-accent text-white px-3 py-1 rounded-lg font-bold">
+                                    9.2
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <h3 class="text-xl font-bold">Грозный Сити</h3>
+                                    <div class="text-primary font-bold">от 5000₽</div>
+                                </div>
+                                <p class="text-gray-600 mt-2 flex items-center">
+                                    <i class="fas fa-map-marker-alt text-primary mr-2"></i> 
+                                    Грозный, пр. Ахмата Кадырова
+                                </p>
+                                <div class="mt-4 flex items-center">
+                                    <div class="rating-stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <span class="ml-2 text-gray-600">(156 отзывов)</span>
+                                </div>
+                                <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Бар</span>
+                                    <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">SPA</span>
+                                    <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Конференц-зал</span>
+                                </div>
+                                <button class="mt-6 w-full bg-primary hover:bg-primary/90 text-white py-3 rounded-lg font-medium transition btn-primary">
+                                    Подробнее
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Hotel Card 5 -->
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden hotel-card">
+                            <div class="relative">
+                                <img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Ведено Палас" class="w-full h-56 object-cover">
+                                <div class="absolute top-4 right-4 bg-accent text-white px-3 py-1 rounded-lg font-bold">
+                                    8.9
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <h3 class="text-xl font-bold">Ведено Палас</h3>
+                                    <div class="text-primary font-bold">от 2800₽</div>
+                                </div>
+                                <p class="text-gray-600 mt-2 flex items-center">
+                                    <i class="fas fa-map-marker-alt text-primary mr-2"></i> 
+                                    Ведено, ул. Горная
+                                </p>
+                                <div class="mt-4 flex items-center">
+                                    <div class="rating-stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                    <span class="ml-2 text-gray-600">(64 отзыва)</span>
+                                </div>
+                                <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Горный вид</span>
+                                    <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Экскурсии</span>
+                                    <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Ресторан</span>
+                                </div>
+                                <button class="mt-6 w-full bg-primary hover:bg-primary/90 text-white py-3 rounded-lg font-medium transition btn-primary">
+                                    Подробнее
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Hotel Card 6 -->
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden hotel-card">
+                            <div class="relative">
+                                <img src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Урус-Мартан Отель" class="w-full h-56 object-cover">
+                                <div class="absolute top-4 right-4 bg-accent text-white px-3 py-1 rounded-lg font-bold">
+                                    8.7
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <h3 class="text-xl font-bold">Урус-Мартан Отель</h3>
+                                    <div class="text-primary font-bold">от 2500₽</div>
+                                </div>
+                                <p class="text-gray-600 mt-2 flex items-center">
+                                    <i class="fas fa-map-marker-alt text-primary mr-2"></i> 
+                                    Урус-Мартан, ул. Центральная
+                                </p>
+                                <div class="mt-4 flex items-center">
+                                    <div class="rating-stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                    <span class="ml-2 text-gray-600">(53 отзыва)</span>
+                                </div>
+                                <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Wi-Fi</span>
+                                    <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Парковка</span>
+                                    <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Бизнес-центр</span>
+                                </div>
+                                <button class="mt-6 w-full bg-primary hover:bg-primary/90 text-white py-3 rounded-lg font-medium transition btn-primary">
+                                    Подробнее
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Pagination -->
+                    <div class="mt-12 flex justify-center">
+                        <nav class="inline-flex rounded-md shadow">
+                            <a href="#" class="py-2 px-4 rounded-l-md border border-gray-300 bg-white text-gray-500 hover:bg-gray-50">
+                                <span class="sr-only">Previous</span>
+                                <i class="fas fa-chevron-left"></i>
+                            </a>
+                            <a href="#" class="py-2 px-4 border-t border-b border-gray-300 bg-white text-gray-500 hover:bg-gray-50">1</a>
+                            <a href="#" class="py-2 px-4 border-t border-b border-gray-300 bg-white text-gray-500 hover:bg-gray-50">2</a>
+                            <a href="#" class="py-2 px-4 border-t border-b border-gray-300 bg-white text-gray-500 hover:bg-gray-50">3</a>
+                            <a href="#" class="py-2 px-4 border-t border-b border-gray-300 bg-white text-gray-500 hover:bg-gray-50">4</a>
+                            <a href="#" class="py-2 px-4 rounded-r-md border border-gray-300 bg-white text-gray-500 hover:bg-gray-50">
+                                <span class="sr-only">Next</span>
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <div class="flex items-center mb-6">
+                        <div class="bg-primary w-10 h-10 rounded-lg flex items-center justify-center text-white font-bold text-xl">Ч</div>
+                        <h2 class="ml-1 text-xl font-bold text-white">Chechen<span class="text-accent">Hotels</span>
+                    </div>
+                    <p class="text-gray-400 mb-6">Лучший каталог отелей Чеченской Республики с реальными отзывами и актуальными ценами.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-vk text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-instagram text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-youtube text-xl"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-6">Навигация</h3>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition">Главная</a></li>
+                        <li><a href="hotels.html" class="text-gray-400 hover:text-white transition">Отели</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition">О проекте</a></li>
+                        <li><a href="blog.html" class="text-gray-400 hover:text-white transition">Блог</a></li>
+                        <li><a href="faq.html" class="text-gray-400 hover:text-white transition">FAQ</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition">Контакты</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-6">Для отельеров</h3>
+                    <ul class="space-y-3">
+                        <li><a href="add-hotel.html" class="text-gray-400 hover:text-white transition">Добавить отель</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Преимущества для партнеров</a></li>
+                        <li><a href="my-hotels.html" class="text-gray-400 hover:text-white transition">Личный кабинет</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Правила размещения</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Тарифы</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-6">Контакты</h3>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-3"></i>
+                            <span>info@chechenhotels.ru</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone mt-1 mr-3"></i>
+                            <span>+7 (871) 123-45-67</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3"></i>
+                            <span>г. Грозный, ул. Мира, д. 24</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-gray-800 text-center text-gray-500 text-sm">
+                <p>© 2023 ChechenHotels.ru. Все права защищены.</p>
+                <div class="mt-2">
+                    <a href="privacy.html" class="hover:text-gray-400 transition">Политика конфиденциальности</a> | 
+                    <a href="terms.html" class="hover:text-gray-400 transition">Пользовательское соглашение</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Filter toggle for mobile
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterToggle = document.querySelector('.filter-toggle');
+            const filterSection = document.querySelector('.filter-section');
+            const filterOverlay = document.querySelector('.filter-overlay');
+            const filterClose = document.querySelector('.filter-close');
+            
+            if(filterToggle) {
+                filterToggle.addEventListener('click', function() {
+                    filterSection.classList.add('active');
+                    filterOverlay.classList.add('active');
+                });
+            }
+            
+            if(filterClose) {
+                filterClose.addEventListener('click', function() {
+                    filterSection.classList.remove('active');
+                    filterOverlay.classList.remove('active');
+                });
+            }
+            
+            if(filterOverlay) {
+                filterOverlay.addEventListener('click', function() {
+                    filterSection.classList.remove('active');
+                    filterOverlay.classList.remove('active');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

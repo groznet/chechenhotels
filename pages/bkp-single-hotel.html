@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Гранд Отель Грозный - Chechen Hotels</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e3a8a',
+                        secondary: '#0f766e',
+                        accent: '#f59e0b',
+                        light: '#f8fafc',
+                        dark: '#0f172a'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Montserrat', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .hero-bg {
+            background-image: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), url('https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-4.0.3&auto=format&fit=crop&w=1800&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        .hotel-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hotel-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .rating-stars {
+            color: #f59e0b;
+        }
+        .feature-icon {
+            background-color: rgba(30, 58, 138, 0.1);
+        }
+        .btn-primary {
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 200px);
+            gap: 10px;
+        }
+        .gallery-item:first-child {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .room-card {
+            transition: all 0.3s ease;
+        }
+        .room-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .review-card {
+            transition: all 0.3s ease;
+        }
+        .review-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        .map-container {
+            height: 400px;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .sticky-booking {
+            position: sticky;
+            top: 100px;
+        }
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: 300px repeat(4, 150px);
+            }
+            .gallery-item:first-child {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+</head>
+<body class="font-sans bg-light text-dark">
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50" x-data="{ open: false }">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center py-4">
+                
+                <!-- Лого -->
+                <div class="flex items-center justify-between w-full md:w-auto">
+                    <div class="flex items-center">
+                        <div class="bg-primary w-10 h-10 rounded-lg flex items-center justify-center text-white font-bold text-xl">Ч</div>
+                        <a href="index.html"><h1 class="ml-1 text-xl font-bold text-primary">Chechen<span class="text-accent">Hotels</span></h1></a>
+                    </div>
+
+                    <button class="block md:hidden bg-light border border-gray-200 rounded-lg p-2">
+                        <i class="fas fa-user text-primary"></i>
+                    </button>
+
+                    <!-- Кнопка бургера -->
+                    <button class="md:hidden text-primary" @click="open = !open">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+
+                <!-- Навигация -->
+                <nav 
+                    class="w-full mt-4 flex-col space-y-2 md:mt-0 md:flex md:flex-row md:items-center md:space-x-8 md:space-y-0 md:w-auto"
+                    :class="{ 'flex': open, 'hidden': !open }">
+                    <a href="/" class="font-medium text-primary hover:text-accent transition">Главная</a>
+                    <a href="hotels.html" class="font-medium hover:text-accent transition">Все отели</a>
+                    <a href="best-hotels.html" class="font-medium hover:text-accent transition">⭐ Лучшие отели</a>
+                    <a href="about.html" class="font-medium hover:text-accent transition">О проекте</a>
+                    <a href="blog.html" class="font-medium hover:text-accent transition">Блог</a>
+                    <a href="contact.html" class="font-medium hover:text-accent transition">Контакты</a>
+                </nav>
+
+                <!-- Кнопки справа -->
+                <div 
+                    class="w-full mt-4 flex justify-start md:justify-end md:items-center space-x-4 md:mt-0 md:w-auto"
+                    :class="{ 'flex': open, 'hidden': !open, 'md:flex': true }"
+                    >
+                    <button class="bg-primary hover:bg-primary/90 text-white px-5 py-2 rounded-lg font-medium transition md:inline-block">
+                        Добавить отель
+                    </button>
+                    <button class="hidden md:block bg-light border border-gray-200 rounded-lg p-2">
+                        <i class="fas fa-user text-primary"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <div class="flex items-center mb-6">
+                        <div class="bg-primary w-10 h-10 rounded-lg flex items-center justify-center text-white font-bold text-xl">Ч</div>
+                        <h2 class="ml-1 text-xl font-bold text-white">Chechen<span class="text-accent">Hotels</span>
+                    </div>
+                    <p class="text-gray-400 mb-6">Лучший каталог отелей Чеченской Республики с реальными отзывами и актуальными ценами.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-vk text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-instagram text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-youtube text-xl"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-6">Навигация</h3>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition">Главная</a></li>
+                        <li><a href="hotels.html" class="text-gray-400 hover:text-white transition">Отели</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition">О проекте</a></li>
+                        <li><a href="blog.html" class="text-gray-400 hover:text-white transition">Блог</a></li>
+                        <li><a href="faq.html" class="text-gray-400 hover:text-white transition">FAQ</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition">Контакты</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-6">Для отельеров</h3>
+                    <ul class="space-y-3">
+                        <li><a href="add-hotel.html" class="text-gray-400 hover:text-white transition">Добавить отель</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Преимущества для партнеров</a></li>
+                        <li><a href="my-hotels.html" class="text-gray-400 hover:text-white transition">Личный кабинет</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Правила размещения</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Тарифы</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-6">Контакты</h3>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-3"></i>
+                            <span>info@chechenhotels.ru</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone mt-1 mr-3"></i>
+                            <span>+7 (871) 123-45-67</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3"></i>
+                            <span>г. Грозный, ул. Мира, д. 24</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-gray-800 text-center text-gray-500 text-sm">
+                <p>© 2023 ChechenHotels.ru. Все права защищены.</p>
+                <div class="mt-2">
+                    <a href="privacy.html" class="hover:text-gray-400 transition">Политика конфиденциальности</a> | 
+                    <a href="terms.html" class="hover:text-gray-400 transition">Пользовательское соглашение</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tab functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-tab');
+                    
+                    // Remove active class from all buttons
+                    tabButtons.forEach(btn => {
+                        btn.classList.remove('border-b-2', 'border-primary', 'text-primary');
+                    });
+                    
+                    // Add active class to current button
+                    this.classList.add('border-b-2', 'border-primary', 'text-primary');
+                    
+                    // Hide all tab contents
+                    tabContents.forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    
+                    // Show current tab content
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // Initialize the first tab as active
+            if (tabButtons.length > 0) {
+                tabButtons[0].classList.add('border-b-2', 'border-primary', 'text-primary');
+            }
+        });
+
+        // Replace hotel demo info with real data
+
+        async function renderSingleHotel() {
+        const params = new URLSearchParams(window.location.search);
+        const slug = params.get("slug");
+
+        const data = await fetch('/data/hotels.json');
+        const hotels = await data.json();
+
+        const hotel = hotels.find(h => h.slug === slug);
+        if (!hotel) {
+            document.body.innerHTML = "<p>Гостиница не найдена</p>";
+            return;
+        }
+
+        // Пример вставки данных
+        document.querySelector('#name').textContent = hotel.name;
+        document.querySelector('#image').src = hotel.image;
+        document.querySelector('#hotel-address').textContent = hotel.address;
+        document.querySelector('#hotel-price').innerHTML = `от ${hotel.price} ₽`;
+        // и т.д.
+        }
+        renderSingleHotel();
+
+
+    </script>
+</body>
+</html>
