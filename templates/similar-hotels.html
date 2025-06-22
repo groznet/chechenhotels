@@ -6,119 +6,57 @@
         </a>
     </div>
     
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Hotel Card 1 -->
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden hotel-card">
-            <div class="relative">
-                <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Аргун Плаза" class="w-full h-56 object-cover">
-                <div class="absolute top-4 right-4 bg-accent text-white px-3 py-1 rounded-lg font-bold">
-                    9.5
-                </div>
-            </div>
-            <div class="p-6">
-                <div class="flex justify-between items-start">
-                    <h3 class="text-xl font-bold">Аргун Плаза</h3>
-                    <div class="text-primary font-bold">от 3800₽</div>
-                </div>
-                <p class="text-gray-600 mt-2 flex items-center">
-                    <i class="fas fa-map-marker-alt text-primary mr-2"></i> 
-                    Аргун, ул. Мира
-                </p>
-                <div class="mt-4 flex items-center">
-                    <div class="rating-stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                    <span class="ml-2 text-gray-600">(98 отзывов)</span>
-                </div>
-                <div class="mt-4 flex flex-wrap gap-2">
-                    <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Парковка</span>
-                    <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Ресторан</span>
-                    <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Конференц-зал</span>
-                </div>
-                <button class="mt-6 w-full bg-primary hover:bg-primary/90 text-white py-3 rounded-lg font-medium transition btn-primary">
-                    Подробнее
-                </button>
-            </div>
-        </div>
+    <div id="hotel-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <script>
+            // hotels constant is now move to data/hotels.json
+            // Use data/hotels.json for data
+
+            async function renderHotels() {
+                const container = document.getElementById('hotel-list');
+                const templateResponse = await fetch('/templates/hotel-card.html');
+                let template = await templateResponse.text();
+
+                const dataResponse = await fetch('/data/hotels.json');
+                const hotels = await dataResponse.json();
+
+                hotels.slice(0, 3).forEach(hotel => {
+                    // Подставляем статичные поля
+                    let hotelHTML = template
+                        .replace(/{{name}}/g, hotel.name)
+                        .replace(/{{slug}}/g, hotel.slug)
+                        .replace(/{{address}}/g, hotel.address.street)
+                        .replace(/{{fromCenter}}/g, hotel.fromCenter)
+                        .replace(/{{ratingScore}}/g, hotel.rating)
+                        .replace(/{{ratingText}}/g, hotel.ratingText || "")
+                        .replace(/{{priceFrom}}/g, `от ${hotel.pricePerNight.min}`)
+                        .replace(/{{featured}}/g, hotel.featured)
+                        .replace(/{{distance}}/g, hotel.distance || "")
+                        .replace(/{{reviews}}/g, hotel.reviews || "0")
+                        .replace(/{{stars}}/g, "★".repeat(hotel.stars || 0))
+
+                    // Динамическая вставка отзывов (если в шаблоне есть {{reviews}})
+                    hotelHTML = hotelHTML.replace(/{{reviews}}/g, hotel.reviews || "0");
+
+                    // Вставка features (если в шаблоне нет шаблона для фич — вставляем вручную)
+                    const amenitiesHTML = hotel.amenities.map(f =>
+                        `<span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">${f}</span>`
+                    ).join('');
+
+                    hotelHTML = hotelHTML.replace('{{features}}', amenitiesHTML);
+
+
+                    // Вместо вставки прямо в шаблон, можно например в placeholder {{features}} или добавлять в готовый html
+                    hotelHTML = hotelHTML.replace('{{mapEmbed}}', hotel.mapEmbed || '');
+
+
+                    container.insertAdjacentHTML('beforeend', hotelHTML);
+                });
+            }
+
+            renderHotels();
+
+        </script>
         
-        <!-- Hotel Card 2 -->
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden hotel-card">
-            <div class="relative">
-                <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Континент Шали" class="w-full h-56 object-cover">
-                <div class="absolute top-4 right-4 bg-accent text-white px-3 py-1 rounded-lg font-bold">
-                    9.3
-                </div>
-            </div>
-            <div class="p-6">
-                <div class="flex justify-between items-start">
-                    <h3 class="text-xl font-bold">Континент Шали</h3>
-                    <div class="text-primary font-bold">от 3200₽</div>
-                </div>
-                <p class="text-gray-600 mt-2 flex items-center">
-                    <i class="fas fa-map-marker-alt text-primary mr-2"></i> 
-                    Шали, ул. Лермонтова
-                </p>
-                <div class="mt-4 flex items-center">
-                    <div class="rating-stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <span class="ml-2 text-gray-600">(87 отзывов)</span>
-                </div>
-                <div class="mt-4 flex flex-wrap gap-2">
-                    <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Тренажерный зал</span>
-                    <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Завтрак включен</span>
-                    <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Бизнес-центр</span>
-                </div>
-                <button class="mt-6 w-full bg-primary hover:bg-primary/90 text-white py-3 rounded-lg font-medium transition btn-primary">
-                    Подробнее
-                </button>
-            </div>
-        </div>
-        
-        <!-- Hotel Card 3 -->
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden hotel-card">
-            <div class="relative">
-                <img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Грозный Сити Отель" class="w-full h-56 object-cover">
-                <div class="absolute top-4 right-4 bg-accent text-white px-3 py-1 rounded-lg font-bold">
-                    9.2
-                </div>
-            </div>
-            <div class="p-6">
-                <div class="flex justify-between items-start">
-                    <h3 class="text-xl font-bold">Грозный Сити Отель</h3>
-                    <div class="text-primary font-bold">от 4100₽</div>
-                </div>
-                <p class="text-gray-600 mt-2 flex items-center">
-                    <i class="fas fa-map-marker-alt text-primary mr-2"></i> 
-                    Грозный, пр. Путина
-                </p>
-                <div class="mt-4 flex items-center">
-                    <div class="rating-stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                    <span class="ml-2 text-gray-600">(112 отзывов)</span>
-                </div>
-                <div class="mt-4 flex flex-wrap gap-2">
-                    <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">SPA</span>
-                    <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Бассейн</span>
-                    <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Трансфер</span>
-                </div>
-                <button class="mt-6 w-full bg-primary hover:bg-primary/90 text-white py-3 rounded-lg font-medium transition btn-primary">
-                    Подробнее
-                </button>
-            </div>
-        </div>
     </div>
 </div>
