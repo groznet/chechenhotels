@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Блог - Chechen Hotels | Новости и советы для путешественников</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e3a8a',
+                        secondary: '#0f766e',
+                        accent: '#f59e0b',
+                        light: '#f8fafc',
+                        dark: '#0f172a'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Montserrat', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .blog-hero {
+            background-image: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url('https://images.unsplash.com/photo-1503220317375-aaad61436b1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1800&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        .article-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .category-tag {
+            transition: all 0.3s ease;
+        }
+        .category-tag:hover {
+            background-color: #1e3a8a;
+            color: white;
+        }
+        .popular-article {
+            transition: all 0.3s ease;
+        }
+        .popular-article:hover {
+            background-color: #f8fafc;
+            transform: translateX(5px);
+        }
+        .subscribe-card {
+            background: linear-gradient(120deg, #1e3a8a, #0f766e);
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+</head>
+<body class="font-sans bg-light text-dark">
+    <!-- Header -->
+    <header id="header" class="bg-white shadow-md sticky top-0 z-50" x-data="{ open: false }">
+    </header>
+
+    <!-- Hero Section -->
+    <section class="blog-hero text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6 font-display">Блог Chechen Hotels</h1>
+            <p class="text-xl max-w-2xl mx-auto opacity-90">Советы, новости и полезная информация для путешественников по Чеченской Республике</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row gap-8">
+                <!-- Main Articles -->
+                <div class="lg:w-2/3">
+                    <!-- Search and Categories -->
+                    <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+                        <div class="flex flex-col md:flex-row justify-between gap-4">
+                            <div class="relative flex-grow">
+                                <input type="text" placeholder="Поиск по блогу..." class="w-full bg-gray-100 border-0 rounded-lg px-6 py-3 pl-12 focus:ring-2 focus:ring-primary">
+                                <i class="fas fa-search text-gray-400 absolute left-4 top-3.5"></i>
+                            </div>
+                            <select class="bg-gray-100 border-0 rounded-lg px-6 py-3 focus:ring-2 focus:ring-primary">
+                                <option>Все категории</option>
+                                <option>Новости туризма</option>
+                                <option>Советы путешественникам</option>
+                                <option>Культура Чечни</option>
+                                <option>Гастрономия</option>
+                                <option>События</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <!-- Featured Article -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-12 article-card">
+                        <div class="md:flex">
+                            <div class="md:w-1/2">
+                                <img src="images/blog/blog-1.jpg" alt="Лучшие сезоны для посещения Чечни" class="w-full h-full object-cover">
+                            </div>
+                            <div class="md:w-1/2 p-8">
+                                <div class="flex items-center mb-4">
+                                    <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">Советы путешественникам</span>
+                                    <span class="ml-4 text-gray-500"><i class="far fa-clock mr-1"></i> 15 мин. чтения</span>
+                                </div>
+                                <h2 class="text-2xl font-bold mb-4">Когда лучше ехать в Чечню: лучшие сезоны для посещения</h2>
+                                <p class="text-gray-600 mb-6">Чеченская Республика прекрасна в любое время года, но каждый сезон предлагает уникальные возможности для путешественников. Узнайте, когда лучше планировать поездку в зависимости от ваших интересов и предпочтений.</p>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                        <div class="w-10 h-10 rounded-full bg-gray-200 mr-3"></div>
+                                        <div>
+                                            <p class="font-medium">Амина Кадырова</p>
+                                            <p class="text-gray-500 text-sm">15 мая 2023</p>
+                                        </div>
+                                    </div>
+                                    <a href="#" class="text-primary font-medium hover:text-accent transition">Читать далее <i class="fas fa-arrow-right ml-2 text-sm"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Articles Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- Article 1 -->
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden article-card">
+                            <img src="images/blog/blog-2.jpg" alt="Чеченская кухня" class="w-full h-48 object-cover">
+                            <div class="p-6">
+                                <div class="flex items-center mb-4">
+                                    <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">Гастрономия</span>
+                                    <span class="ml-4 text-gray-500"><i class="far fa-clock mr-1"></i> 8 мин.</span>
+                                </div>
+                                <h3 class="text-xl font-bold mb-3">10 блюд чеченской кухни, которые стоит попробовать</h3>
+                                <p class="text-gray-600 mb-6">От жижиг-галнаш до чепалгаш - гид по самым вкусным и традиционным блюдам Чечни, которые обязательно нужно попробовать во время вашего визита.</p>
+                                <div class="flex items-center justify-between">
+                                    <div class="text-gray-500 text-sm">12 мая 2023</div>
+                                    <a href="#" class="text-primary font-medium hover:text-accent transition">Читать <i class="fas fa-arrow-right ml-2 text-sm"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Article 2 -->
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden article-card">
+                            <img src="images/blog/blog-3.jpg" alt="Горные пейзажи" class="w-full h-48 object-cover">
+                            <div class="p-6">
+                                <div class="flex items-center mb-4">
+                                    <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">Советы путешественникам</span>
+                                    <span class="ml-4 text-gray-500"><i class="far fa-clock mr-1"></i> 10 мин.</span>
+                                </div>
+                                <h3 class="text-xl font-bold mb-3">Топ-5 горных маршрутов Чечни для начинающих туристов</h3>
+                                <p class="text-gray-600 mb-6">Чеченская Республика славится своими горными пейзажами. Мы собрали лучшие маршруты для тех, кто только начинает знакомство с горным туризмом.</p>
+                                <div class="flex items-center justify-between">
+                                    <div class="text-gray-500 text-sm">8 мая 2023</div>
+                                    <a href="#" class="text-primary font-medium hover:text-accent transition">Читать <i class="fas fa-arrow-right ml-2 text-sm"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Article 3 -->
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden article-card">
+                            <img src="images/blog/blog-4.jpg" alt="Фестиваль" class="w-full h-48 object-cover">
+                            <div class="p-6">
+                                <div class="flex items-center mb-4">
+                                    <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">События</span>
+                                    <span class="ml-4 text-gray-500"><i class="far fa-clock mr-1"></i> 6 мин.</span>
+                                </div>
+                                <h3 class="text-xl font-bold mb-3">Фестиваль "Цветущая Чечня": даты и программа</h3>
+                                <p class="text-gray-600 mb-6">Все, что нужно знать о главном весеннем фестивале республики. Музыка, танцы, ярмарки и цветочные выставки - как не пропустить самое интересное.</p>
+                                <div class="flex items-center justify-between">
+                                    <div class="text-gray-500 text-sm">3 мая 2023</div>
+                                    <a href="#" class="text-primary font-medium hover:text-accent transition">Читать <i class="fas fa-arrow-right ml-2 text-sm"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Article 4 -->
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden article-card">
+                            <img src="images/blog/blog-5.jpg" alt="Аргунское ущелье" class="w-full h-48 object-cover">
+                            <div class="p-6">
+                                <div class="flex items-center mb-4">
+                                    <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">Культура Чечни</span>
+                                    <span class="ml-4 text-gray-500"><i class="far fa-clock mr-1"></i> 12 мин.</span>
+                                </div>
+                                <h3 class="text-xl font-bold mb-3">Исторические достопримечательности Аргунского ущелья</h3>
+                                <p class="text-gray-600 mb-6">Путешествие по древним башням и святилищам одного из самых красивых мест на Кавказе. Гид по главным историческим объектам ущелья.</p>
+                                <div class="flex items-center justify-between">
+                                    <div class="text-gray-500 text-sm">28 апреля 2023</div>
+                                    <a href="#" class="text-primary font-medium hover:text-accent transition">Читать <i class="fas fa-arrow-right ml-2 text-sm"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Article 5 -->
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden article-card">
+                            <img src="images/blog/blog-6.jpg" alt="Семейный отдых" class="w-full h-48 object-cover">
+                            <div class="p-6">
+                                <div class="flex items-center mb-4">
+                                    <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">Советы путешественникам</span>
+                                    <span class="ml-4 text-gray-500"><i class="far fa-clock mr-1"></i> 7 мин.</span>
+                                </div>
+                                <h3 class="text-xl font-bold mb-3">Как спланировать идеальный семейный отдых в Чечне</h3>
+                                <p class="text-gray-600 mb-6">От выбора отеля до составления маршрута - практические советы для семей с детьми, которые помогут сделать поездку комфортной и запоминающейся.</p>
+                                <div class="flex items-center justify-between">
+                                    <div class="text-gray-500 text-sm">22 апреля 2023</div>
+                                    <a href="#" class="text-primary font-medium hover:text-accent transition">Читать <i class="fas fa-arrow-right ml-2 text-sm"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Article 6 -->
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden article-card">
+                            <img src="images/blog/blog-7.jpg" alt="Бизнес-путешествие" class="w-full h-48 object-cover">
+                            <div class="p-6">
+                                <div class="flex items-center mb-4">
+                                    <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">Новости туризма</span>
+                                    <span class="ml-4 text-gray-500"><i class="far fa-clock mr-1"></i> 5 мин.</span>
+                                </div>
+                                <h3 class="text-xl font-bold mb-3">Лучшие отели Грозного для бизнес-путешественников</h3>
+                                <p class="text-gray-600 mb-6">Обзор гостиниц с лучшими условиями для деловых поездок: конференц-залы, бизнес-центры, расположение и другие важные критерии.</p>
+                                <div class="flex items-center justify-between">
+                                    <div class="text-gray-500 text-sm">18 апреля 2023</div>
+                                    <a href="#" class="text-primary font-medium hover:text-accent transition">Читать <i class="fas fa-arrow-right ml-2 text-sm"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Pagination -->
+                    <div class="mt-12 flex justify-center">
+                        <nav class="inline-flex rounded-md shadow">
+                            <a href="#" class="py-2 px-4 rounded-l-md border border-gray-300 bg-white text-gray-500 hover:bg-gray-50">
+                                <span class="sr-only">Previous</span>
+                                <i class="fas fa-chevron-left"></i>
+                            </a>
+                            <a href="#" class="py-2 px-4 border-t border-b border-gray-300 bg-white text-gray-500 hover:bg-gray-50">1</a>
+                            <a href="#" class="py-2 px-4 border-t border-b border-gray-300 bg-primary text-white">2</a>
+                            <a href="#" class="py-2 px-4 border-t border-b border-gray-300 bg-white text-gray-500 hover:bg-gray-50">3</a>
+                            <a href="#" class="py-2 px-4 border-t border-b border-gray-300 bg-white text-gray-500 hover:bg-gray-50">4</a>
+                            <a href="#" class="py-2 px-4 rounded-r-md border border-gray-300 bg-white text-gray-500 hover:bg-gray-50">
+                                <span class="sr-only">Next</span>
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+                        </nav>
+                    </div>
+                </div>
+                
+                <!-- Sidebar -->
+                <div class="lg:w-1/3">
+                    <!-- Categories -->
+                    <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+                        <h3 class="text-xl font-bold mb-6 font-display">Категории статей</h3>
+                        <ul class="space-y-3">
+                            <li>
+                                <a href="#" class="flex justify-between items-center py-2 border-b border-gray-100 hover:text-primary transition">
+                                    <span>Советы путешественникам</span>
+                                    <span class="bg-gray-100 text-gray-700 rounded-full px-3 py-1 text-sm">24</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex justify-between items-center py-2 border-b border-gray-100 hover:text-primary transition">
+                                    <span>Новости туризма</span>
+                                    <span class="bg-gray-100 text-gray-700 rounded-full px-3 py-1 text-sm">18</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex justify-between items-center py-2 border-b border-gray-100 hover:text-primary transition">
+                                    <span>Культура Чечни</span>
+                                    <span class="bg-gray-100 text-gray-700 rounded-full px-3 py-1 text-sm">15</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex justify-between items-center py-2 border-b border-gray-100 hover:text-primary transition">
+                                    <span>Гастрономия</span>
+                                    <span class="bg-gray-100 text-gray-700 rounded-full px-3 py-1 text-sm">12</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex justify-between items-center py-2 hover:text-primary transition">
+                                    <span>События</span>
+                                    <span class="bg-gray-100 text-gray-700 rounded-full px-3 py-1 text-sm">9</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Popular Articles -->
+                    <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+                        <h3 class="text-xl font-bold mb-6 font-display">Популярные статьи</h3>
+                        <div class="space-y-6">
+                            <a href="#" class="flex popular-article p-3 rounded-lg">
+                                <div class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Экскурсии" class="w-full h-full object-cover">
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="font-bold mb-1">10 лучших экскурсий по Грозному</h4>
+                                    <p class="text-gray-500 text-sm">12 апреля 2023</p>
+                                </div>
+                            </a>
+                            
+                            <a href="#" class="flex popular-article p-3 rounded-lg">
+                                <div class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1501555088652-021faa106b9b?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Сувениры" class="w-full h-full object-cover">
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="font-bold mb-1">Что привезти из Чечни: лучшие сувениры</h4>
+                                    <p class="text-gray-500 text-sm">5 апреля 2023</p>
+                                </div>
+                            </a>
+                            
+                            <a href="#" class="flex popular-article p-3 rounded-lg">
+                                <div class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1473445730015-841f29a9490b?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Природа" class="w-full h-full object-cover">
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="font-bold mb-1">Самые красивые природные места Чечни</h4>
+                                    <p class="text-gray-500 text-sm">29 марта 2023</p>
+                                </div>
+                            </a>
+                            
+                            <a href="#" class="flex popular-article p-3 rounded-lg">
+                                <div class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1586015555751-63bb77f4322c?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Транспорт" class="w-full h-full object-cover">
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="font-bold mb-1">Как перемещаться по Чечне: транспорт для туристов</h4>
+                                    <p class="text-gray-500 text-sm">22 марта 2023</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Tags -->
+                    <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+                        <h3 class="text-xl font-bold mb-6 font-display">Популярные теги</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <a href="#" class="category-tag bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm">Грозный</a>
+                            <a href="#" class="category-tag bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm">Аргун</a>
+                            <a href="#" class="category-tag bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm">Горы</a>
+                            <a href="#" class="category-tag bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm">Кухня</a>
+                            <a href="#" class="category-tag bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm">История</a>
+                            <a href="#" class="category-tag bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm">Экскурсии</a>
+                            <a href="#" class="category-tag bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm">Семейный отдых</a>
+                            <a href="#" class="category-tag bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm">Бизнес-трип</a>
+                            <a href="#" class="category-tag bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm">Фестивали</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Subscribe -->
+                    <div class="subscribe-card text-white rounded-xl shadow-lg p-8 text-center">
+                        <h3 class="text-xl font-bold mb-4 font-display">Подпишитесь на обновления</h3>
+                        <p class="mb-6 opacity-90">Получайте новые статьи и советы прямо на почту</p>
+                        <div class="mb-4">
+                            <input type="email" placeholder="Ваш email" class="w-full bg-white/20 border border-white/30 rounded-lg px-6 py-3 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white">
+                        </div>
+                        <button class="w-full bg-accent hover:bg-accent/90 text-white font-bold py-3 rounded-lg transition">
+                            Подписаться
+                        </button>
+                        <p class="text-sm mt-4 opacity-80">Мы не спамим и не передаем ваши данные третьим лицам</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="scripts.js"></script>
+</body>
+</html>

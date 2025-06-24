@@ -1,0 +1,1125 @@
+[
+  {
+    "id": "1",
+    "name": "Cosmos Selection Grozny City",
+    "slug": "cosmos-selection-grozny-city",
+    "description": "<p class='text-gray-700 mb-6'>«Cosmos Selection Grozny City» - это отель категории 5 звезд в Грозном. Побывав здесь, у вас навсегда сложится приятное впечатление о городе и о его инфраструктуре. Отели такого уровня всегда шикарно встречают своих гостей и погружают их в мир комфорта и роскоши..</p><p class='text-gray-700 mb-6'>Номерной фонд «Cosmos Selection Grozny City» составляют номера, в которых есть все необходимое и даже больше. Из многих номеров открываются потрясающие виды на город. Кроме того, отель может предложить своим гостям услуги SPA и Фитнес в современном оздоровительном центре гостиницы.</p><p class='text-gray-700 mb-6'>В отеле несколько ресторанов, позволяющих выбрать привычную Вам кухню, а также попробовать что-нибудь новое. Сытный и вкусный завтрак по типу «Шведский стол» входит в стоимость проживания.</p><p class='text-gray-700 mb-6'>К услугам гостей предоставляется конференц-зал с вместительностью до 30 человек. В стоимость аренды зала входит: эргономичная мебель, микрофоны, проектор и письменные принадлежности.</p><p class='text-gray-700 mb-6'>В преимуществе отеля также и его месторасположение: «Cosmos Selection Grozny City» находится в самой красивой части города, на берегу реки Сунжа, рядом с мечетью «Сердце Чечни» и всего в 10-ти минутах езды от аэропорта города.</p>",
+    "summary": "Cosmos Selection Grozny City — современный отель в центре Грозного, с отличными отзывами и высоким уровнем сервиса.",
+    "address": {
+      "street": "пр-т А.Х Кадырова, д. 1/16",
+      "city": "Грозный",
+      "state": "Чечня",
+      "postalCode": "",
+      "country": "Россия"
+    },
+    "fromCenter": "0.3 км",
+    "distance": "До центра города: 0.3 км, до аэропорта: 8.1 км, до ж/д вокзала: 1.2 км",
+    "contact": {
+      "phone": "+7 (921) 306-84-15",
+      "email": "",
+      "website": ""
+    },
+    "location": {
+      "latitude": null,
+      "longitude": null
+    },
+    "mapEmbed": "",
+    "rating": 9.4,
+    "ratingText": "Отлично",
+    "stars": 5,
+    "pricePerNight": {
+      "min": 8100,
+      "max": null,
+      "currency": "RUB"
+    },
+    "payment": "Оплата на сайте",
+    "breakfastIncluded": true,
+    "amenities": [
+      "Wi-Fi",
+      "Завтрак",
+      "Парковка",
+      "Кондиционер",
+      "Фен",
+      "ЖК-телевизор"
+    ],
+    "amenitiesList": [
+      "Бассейн",
+      "Сейф",
+      "Бар / Ресторан",
+      "Трансфер",
+      "Сауна / SPA",
+      "Круглосуточная стойка регистрации",
+      "Автостоянка / Парковка"
+    ],
+    "featured": "/images/hotels/cosmos-selection/featured.jpg",
+    "images": [
+      "/images/hotels/cosmos-selection/gallery1.jpg",
+      "/images/hotels/cosmos-selection/gallery2.jpg",
+      "/images/hotels/cosmos-selection/gallery3.jpg",
+      "/images/hotels/cosmos-selection/gallery4.jpg",
+      "/images/hotels/cosmos-selection/gallery5.jpg"
+    ],
+    "reviews": 499,
+    "policies": {
+      "checkIn": "",
+      "checkOut": "",
+      "cancellation": "",
+      "petPolicy": ""
+    },
+    "lastUpdated": "2025-06-18T12:00:00Z"
+  },  
+  {
+    "id": "3",
+    "name": "Гостиница Беркат",
+    "slug": "berkat_hotel",
+    "description": "<p class='text-gray-700 mb-6'>Гостиница «Беркат» находится в центральной части города Грозный, рядом с живописным парком с фонтаном. Комфортабельные номера различных категорий оснащены ванной комнатой, телевизором и кондиционером. Завтраки подаются по системе «шведский стол». В отеле есть конференц-зал с современной техникой. Недалеко расположены спортхолл «Колизей» и мечеть «Сердце Чечни».</p>",
+    "summary": "Гостиница Беркат — уютный отель в центре Грозного с парковкой, завтраками и конференц-залом.",
+    "address": {
+      "street": "ул. Трошева, д. 29а",
+      "city": "Грозный",
+      "state": "Чечня",
+      "postalCode": "",
+      "country": "Россия"
+    },
+    "fromCenter": "1.3 км",
+    "distance": "До центра города: 1.3 км, до аэропорта: 6.7 км, до ж/д вокзала: 2.3 км",
+    "contact": {
+      "phone": "+7 (921) 786-21-48",
+      "email": "info@berkat-hotel.ru",
+      "website": "hotel-berkat.ru"
+    },
+    "location": {
+      "latitude": null,
+      "longitude": null
+    },
+    "mapEmbed": "",
+    "rating": 9.3,
+    "ratingText": "Отлично",
+    "stars": 3,
+    "pricePerNight": {
+      "min": 2800,
+      "max": null,
+      "currency": "RUB"
+    },
+    "payment": "Оплата на сайте",
+    "breakfastIncluded": true,
+    "amenities": [
+      "Wi-Fi",
+      "Завтрак",
+      "Парковка",
+      "Кондиционер",
+      "ЖК-телевизор"
+    ],
+    "amenitiesList": [
+      "Бар / Ресторан",
+      "Трансфер",
+      "Круглосуточная стойка регистрации",
+      "Автостоянка / Парковка",
+      "Конференц-зал"
+    ],
+    "featured": "/images/hotels/berkat_hotel/featured.jpg",
+    "images": [
+      "/images/hotels/berkat_hotel/gallery1.jpg",
+      "/images/hotels/berkat_hotel/gallery2.jpg",
+      "/images/hotels/berkat_hotel/gallery3.jpg",
+      "/images/hotels/berkat_hotel/gallery4.jpg",
+      "/images/hotels/berkat_hotel/gallery5.jpg"
+    ],
+    "reviews": 121,
+    "policies": {
+      "checkIn": "",
+      "checkOut": "",
+      "cancellation": "",
+      "petPolicy": ""
+    },
+    "lastUpdated": "2025-06-18T12:00:00Z"
+  },
+  {
+    "id": "4",
+    "name": "Гостиница Арена City",
+    "slug": "arena_city",
+    "description": "<p class='text-gray-700 mb-6'>Роскошный пятизвездочный отель «Арена City» расположен в Грозном и представляет собой развлекательно-оздоровительный комплекс. В распоряжении гостей номера разных категорий, ресторан «Огни Востока», конференц-зал и услуги трансфера. Недалеко от отеля — Аргунский музей-заповедник.</p>",
+    "summary": "Арена City — отель в Грозном с парковкой, Wi-Fi, конференц-залом и рестораном.",
+    "address": {
+      "street": "ул. Полярников, д. 52",
+      "city": "Грозный",
+      "state": "Чечня",
+      "postalCode": "",
+      "country": "Россия"
+    },
+    "fromCenter": "2.0 км",
+    "distance": "До центра города: 2.0 км, до аэропорта: 5.8 км, до ж/д вокзала: 3.2 км",
+    "contact": {
+      "phone": "+7 (931) 629-10-13",
+      "email": "",
+      "website": ""
+    },
+    "location": {
+      "latitude": null,
+      "longitude": null
+    },
+    "mapEmbed": "",
+    "rating": 8.9,
+    "ratingText": "Очень хорошо",
+    "stars": 5,
+    "pricePerNight": {
+      "min": 4600,
+      "max": null,
+      "currency": "RUB"
+    },
+    "payment": "Оплата на сайте",
+    "breakfastIncluded": true,
+    "amenities": [
+      "Wi-Fi",
+      "Завтрак",
+      "Парковка",
+      "Кондиционер",
+      "Фен",
+      "ЖК-телевизор"
+    ],
+    "amenitiesList": [
+      "Сейф",
+      "Бассейн",
+      "Трансфер",
+      "Сауна / SPA",
+      "Круглосуточная стойка регистрации",
+      "Конференц-зал"
+    ],
+    "featured": "/images/hotels/arena_city/featured.jpg",
+    "images": [
+      "/images/hotels/arena_city/gallery1.jpg",
+      "/images/hotels/arena_city/gallery2.jpg",
+      "/images/hotels/arena_city/gallery3.jpg",
+      "/images/hotels/arena_city/gallery4.jpg",
+      "/images/hotels/arena_city/gallery5.jpg"
+    ],
+    "reviews": 171,
+    "policies": {
+      "checkIn": "",
+      "checkOut": "",
+      "cancellation": "",
+      "petPolicy": ""
+    },
+    "lastUpdated": "2025-06-18T12:00:00Z"
+  },
+  {
+    "id": "5",
+    "name": "The Local Hotels Grozny",
+    "slug": "the_local_hotels",
+    "description": "<p class='text-gray-700 mb-6'>Отель «The Local Hotels Grozny» расположен в Ахматовском районе Грозного, недалеко от Ахмат Арены и парка Антона Чехова. Гостям предлагаются современные комфортные номера, фитнес-зал, бассейн, сигарная лаунж-зона и ресторан. Предусмотрен трансфер, а также сервируются вкусные завтраки.</p>",
+    "summary": "Современный отель с бассейном, фитнес-залом, рестораном и отличным расположением.",
+    "address": {
+      "street": "пр-кт Мохаммеда Али, д. 53/25",
+      "city": "Грозный",
+      "state": "Чечня",
+      "postalCode": "",
+      "country": "Россия"
+    },
+    "fromCenter": "3.5 км",
+    "distance": "До центра города: 3.5 км, до аэропорта: 8.2 км, до ж/д вокзала: 4.7 км",
+    "contact": {
+      "phone": "+7 (921) 357-09-32",
+      "email": "",
+      "website": ""
+    },
+    "location": {
+      "latitude": null,
+      "longitude": null
+    },
+    "mapEmbed": "",
+    "rating": 9.4,
+    "ratingText": "Отлично",
+    "stars": null,
+    "pricePerNight": {
+      "min": 7500,
+      "max": null,
+      "currency": "RUB"
+    },
+    "payment": "Оплата на сайте",
+    "breakfastIncluded": true,
+    "amenities": [
+      "Wi-Fi",
+      "Завтрак",
+      "Парковка",
+      "Кондиционер",
+      "Фен",
+      "ЖК-телевизор"
+    ],
+    "amenitiesList": [
+      "Сейф",
+      "Бассейн",
+      "Трансфер",
+      "Сауна / SPA",
+      "Круглосуточная стойка регистрации",
+      "Бар / Ресторан",
+      "Фитнес-зал",
+      "Сигарная лаунж-зона"
+    ],
+    "featured": "/images/hotels/the_local_hotels/featured.jpg",
+    "images": [
+      "/images/hotels/the_local_hotels/gallery1.jpg",
+      "/images/hotels/the_local_hotels/gallery2.jpg",
+      "/images/hotels/the_local_hotels/gallery3.jpg",
+      "/images/hotels/the_local_hotels/gallery4.jpg",
+      "/images/hotels/the_local_hotels/gallery5.jpg"
+    ],
+    "reviews": 13,
+    "policies": {
+      "checkIn": "",
+      "checkOut": "",
+      "cancellation": "",
+      "petPolicy": ""
+    },
+    "lastUpdated": "2025-06-18T12:00:00Z"
+  },  
+  {
+    "id": "6",
+    "name": "Гостиница Dona Hotel",
+    "slug": "dona_hotel",
+    "description": "<p class='text-gray-700 mb-6'>«Dona Hotel» — это уютная гостиница в центре Грозного, рядом с главными достопримечательностями города. Гостям предлагаются современные светлые номера, ресторан с бесплатными завтраками, а также бесплатная парковка. Удобное расположение делает отель отличным выбором как для отдыха, так и для деловых поездок.</p>",
+    "summary": "Уютный отель в центре города с рестораном, бесплатной парковкой и Wi-Fi.",
+    "address": {
+      "street": "ул. Малгобекская, д. 19",
+      "city": "Грозный",
+      "state": "Чечня",
+      "postalCode": "",
+      "country": "Россия"
+    },
+    "fromCenter": "2.2 км",
+    "distance": "До центра города: 2.2 км, до аэропорта: 6.4 км, до ж/д вокзала: 2.7 км",
+    "contact": {
+      "phone": "",
+      "email": "",
+      "website": ""
+    },
+    "location": {
+      "latitude": null,
+      "longitude": null
+    },
+    "mapEmbed": "",
+    "rating": 10,
+    "ratingText": "Великолепно",
+    "stars": null,
+    "pricePerNight": {
+      "min": 5500,
+      "max": null,
+      "currency": "RUB"
+    },
+    "payment": "Оплата на сайте",
+    "breakfastIncluded": true,
+    "amenities": [
+      "Wi-Fi",
+      "Завтрак",
+      "Парковка",
+      "ЖК-телевизор"
+    ],
+    "amenitiesList": [
+      "Бар / Ресторан",
+      "Сауна / SPA"
+    ],
+    "featured": "/images/hotels/dona_hotel/featured.jpg",
+    "images": [
+      "/images/hotels/dona_hotel/gallery1.jpg",
+      "/images/hotels/dona_hotel/gallery2.jpg",
+      "/images/hotels/dona_hotel/gallery3.jpg",
+      "/images/hotels/dona_hotel/gallery4.jpg",
+      "/images/hotels/dona_hotel/gallery5.jpg"
+    ],
+    "reviews": 1,
+    "policies": {
+      "checkIn": "",
+      "checkOut": "",
+      "cancellation": "",
+      "petPolicy": ""
+    },
+    "lastUpdated": "2025-06-18T12:00:00Z"
+  },
+  {
+    "id": "7",
+    "name": "Гостевой дом Ирс",
+    "slug": "irs-guesthouse",
+    "description": "<p class='text-gray-700 mb-6'>Гостевой дом «Ирс» расположен в спокойном частном секторе Грозного, в районе Адхан-Чурт. Гостям предлагаются чистые светлые номера с собственной ванной комнатой. Есть общая кухня, где можно готовить еду самостоятельно, что удобно для экономии бюджета. В шаговой доступности находится Аллея Славы, а до аэропорта — всего 1,8 км.</p>",
+    "summary": "Уютный гостевой дом с парковкой, общей кухней и удобным расположением рядом с аэропортом.",
+    "address": {
+      "street": "ул. А.А. Айдамирова, д. 310",
+      "city": "Грозный",
+      "state": "Чечня",
+      "postalCode": "",
+      "country": "Россия"
+    },
+    "fromCenter": "6.0 км",
+    "distance": "До центра города: 6.0 км, до аэропорта: 1.8 км, до ж/д вокзала: 7.2 км",
+    "contact": {
+      "phone": "",
+      "email": "",
+      "website": ""
+    },
+    "location": {
+      "latitude": null,
+      "longitude": null
+    },
+    "mapEmbed": "",
+    "rating": 9.6,
+    "ratingText": "Великолепно",
+    "stars": null,
+    "pricePerNight": {
+      "min": 3000,
+      "max": null,
+      "currency": "RUB"
+    },
+    "payment": "Оплата на месте",
+    "breakfastIncluded": false,
+    "amenities": [
+      "Wi-Fi",
+      "Общая кухня",
+      "Парковка",
+      "Кондиционер"
+    ],
+    "amenitiesList": [
+      "Холодильник",
+      "Электрический чайник",
+      "Микроволновая печь",
+      "Стиральная машина"
+    ],
+    "featured": "/images/hotels/irs-guesthouse/featured.jpg",
+    "images": [
+      "/images/hotels/irs-guesthouse/gallery1.jpg",
+      "/images/hotels/irs-guesthouse/gallery2.jpg",
+      "/images/hotels/irs-guesthouse/gallery3.jpg",
+      "/images/hotels/irs-guesthouse/gallery4.jpg",
+      "/images/hotels/irs-guesthouse/gallery5.jpg"
+    ],
+    "reviews": 13,
+    "policies": {
+      "checkIn": "",
+      "checkOut": "",
+      "cancellation": "",
+      "petPolicy": ""
+    },
+    "lastUpdated": "2025-06-18T12:00:00Z"
+  },
+  {
+    "id": "7",
+    "name": "Отель Nokhchostar",
+    "slug": "nokhchostar",
+    "description": "<p class='text-gray-700 mb-6'>Отель «Nokhchostar» расположен в центре Грозного, рядом с драмтеатром и торговыми центрами. В номерах есть Wi-Fi, телевизор, кондиционер и ванная комната с гигиеническими средствами. Предоставляется электрочайник.</p>",
+    "summary": "«Nokhchostar» — уютный отель в центре Грозного с комфортными номерами и удобным расположением.",
+    "address": {
+      "street": "б-р М.А. Эсамбаева, д. 14А",
+      "city": "Грозный",
+      "state": "Чечня",
+      "postalCode": "",
+      "country": "Россия"
+    },
+    "fromCenter": "0.7 км",
+    "distance": "До центра Грозного 700 м",
+    "contact": {
+      "phone": "",
+      "email": "",
+      "website": ""
+    },
+    "location": {
+      "latitude": null,
+      "longitude": null
+    },
+    "mapEmbed": "",
+    "rating": 7.9,
+    "ratingText": "Нормально",
+    "stars": null,
+    "pricePerNight": {
+      "min": 4100,
+      "max": null,
+      "currency": "RUB"
+    },
+    "payment": "Бронирование напрямую",
+    "breakfastIncluded": false,
+    "amenities": [
+      "Wi-Fi", "Парковка", "Кондиционер", "Электрочайник", "Телевизор", "Письменный стол"
+    ],
+    "amenitiesList": [
+      "Вид на Арбат", "Можно с детьми", "Видеонаблюдение", "Персонал говорит на русском и английском"
+    ],
+    "featured": "/images/hotels/nokhchostar/featured.jpg",
+    "images": [
+      "/images/hotels/nokhchostar/gallery1.jpg",
+      "/images/hotels/nokhchostar/gallery2.jpg",
+      "/images/hotels/nokhchostar/gallery3.jpg"
+    ],
+    "reviews": 3,
+    "policies": {
+      "checkIn": "",
+      "checkOut": "",
+      "cancellation": "",
+      "petPolicy": "Можно с детьми любого возраста"
+    },
+    "lastUpdated": "2025-06-18T12:00:00Z"
+  },
+  {
+    "id": "8",
+    "name": "Отель Central City",
+    "slug": "central-city",
+    "description": "<p class='text-gray-700 mb-6'>Отель «Central City» расположен в центре Грозного возле театра Юного зрителя. Номера оснащены двуспальными кроватями, телевизорами, рабочими зонами, собственными санузлами с ванной и феном. Для гостей работают снэк-бар и доставка завтрака в номер.</p>",
+    "summary": "«Central City» — популярный отель в центре Грозного с удобствами и бесплатным Wi-Fi.",
+    "address": {
+      "street": "пр. В.В. Путина, д. 26",
+      "city": "Грозный",
+      "state": "Чечня",
+      "postalCode": "",
+      "country": "Россия"
+    },
+    "fromCenter": "0.8 км",
+    "distance": "До центра Грозного 800 м",
+    "contact": {
+      "phone": "+7 (999) 066-08-57",
+      "email": "",
+      "website": ""
+    },
+    "location": {
+      "latitude": null,
+      "longitude": null
+    },
+    "mapEmbed": "",
+    "rating": 9.6,
+    "ratingText": "Великолепно",
+    "stars": null,
+    "pricePerNight": {
+      "min": 6400,
+      "max": null,
+      "currency": "RUB"
+    },
+    "payment": "Бронирование напрямую",
+    "breakfastIncluded": true,
+    "amenities": [
+      "Wi-Fi", "Кондиционер", "Фен", "Парковка", "Трансфер", "ЖК-телевизор", "Круглосуточная стойка регистрации"
+    ],
+    "amenitiesList": [
+      "Снэк-бар", "Доставка завтрака в номер", "Рабочие зоны", "Вежливый персонал"
+    ],
+    "featured": "/images/hotels/central-city/featured.jpg",
+    "images": [
+      "/images/hotels/central-city/gallery1.jpg",
+      "/images/hotels/central-city/gallery2.jpg",
+      "/images/hotels/central-city/gallery3.jpg",
+      "/images/hotels/central-city/gallery4.jpg",
+      "/images/hotels/central-city/gallery5.jpg",
+      "/images/hotels/central-city/gallery6.jpg"
+    ],
+    "reviews": 428,
+    "policies": {
+      "checkIn": "",
+      "checkOut": "",
+      "cancellation": "",
+      "petPolicy": ""
+    },
+    "lastUpdated": "2025-06-18T12:00:00Z"
+  },
+  {
+    "id": "9",
+    "name": "Гостиница Городок",
+    "slug": "gorodok-grozny",
+    "description": "<p class='text-gray-700 mb-6'>Уютная и стильная гостиница «Городок» в Грозном с сауной, бассейном и рестораном. Просторные номера с кондиционером, ТВ и мини-баром. Включён завтрак. Рядом Аргунский музей-заповедник и торговый центр.</p>",
+    "summary": "«Городок» — популярная гостиница в Грозном с сауной, бассейном и бесплатным Wi-Fi.",
+    "address": {
+      "street": "ул. Нурсултана Абишевича Назарбаева, д. 122",
+      "city": "Грозный",
+      "state": "Чечня",
+      "postalCode": "",
+      "country": "Россия"
+    },
+    "fromCenter": "2.0 км",
+    "distance": "До центра Грозного 2 км",
+    "contact": {
+      "phone": "+7 (999) 023-05-91",
+      "email": "",
+      "website": ""
+    },
+    "location": {
+      "latitude": null,
+      "longitude": null
+    },
+    "mapEmbed": "",
+    "rating": 9.8,
+    "ratingText": "Великолепно",
+    "stars": null,
+    "pricePerNight": {
+      "min": 4250,
+      "max": null,
+      "currency": "RUB"
+    },
+    "payment": "Бронирование напрямую",
+    "breakfastIncluded": true,
+    "amenities": [
+      "Wi-Fi", "Кондиционер", "Сейф", "Круглосуточная стойка регистрации", "Бар / Ресторан", "Парковка", "Бассейн", "Трансфер", "ЖК-телевизор", "Сауна / SPA"
+    ],
+    "amenitiesList": [
+      "Сауна", "Бассейн", "Бар", "Ресторан", "Трансфер"
+    ],
+    "featured": "/images/hotels/gorodok/featured.jpg",
+    "images": [
+      "/images/hotels/gorodok/gallery1.jpg",
+      "/images/hotels/gorodok/gallery2.jpg"
+    ],
+    "reviews": 280,
+    "policies": {
+      "checkIn": "",
+      "checkOut": "",
+      "cancellation": "",
+      "petPolicy": ""
+    },
+    "lastUpdated": "2025-06-18T12:00:00Z"
+  },
+  {
+    "id": "10",
+    "name": "Гостиница Динамо",
+    "slug": "dinamo-grozny",
+    "description": "<p class='text-gray-700 mb-6'>Гостиница «Динамо» находится в центре Грозного, рядом со стадионом им. С.Г. Билихманова. В номерах — кондиционер, ТВ, интернет, холодильник и электрочайник. Есть бассейн, сауна, автостоянка и конференц-зал.</p>",
+    "summary": "«Динамо» — популярная гостиница с бассейном и сауной в центре Грозного.",
+    "address": {
+      "street": "ул. Грибоедова, д. 110",
+      "city": "Грозный",
+      "state": "Чечня",
+      "postalCode": "",
+      "country": "Россия"
+    },
+    "fromCenter": "1.0 км",
+    "contact": {
+      "phone": "",
+      "email": "",
+      "website": ""
+    },
+    "location": {
+      "latitude": null,
+      "longitude": null
+    },
+    "rating": 10,
+    "ratingText": "Великолепно",
+    "pricePerNight": {
+      "min": 2500,
+      "max": null,
+      "currency": "RUB"
+    },
+    "amenities": [
+      "Wi-Fi", "Кондиционер", "Круглосуточная стойка регистрации", "Автостоянка / Парковка", "Бассейн", "Трансфер"
+    ],
+    "reviews": 4,
+    "policies": {
+      "checkIn": "",
+      "checkOut": "",
+      "cancellation": "",
+      "petPolicy": ""
+    },
+    "lastUpdated": "2025-06-18T12:00:00Z"
+  },
+  {
+    "id": "11",
+    "name": "Гостиница Шали-Сити",
+    "slug": "shali-city-shali",
+    "description": "<p class='text-gray-700 mb-6'>Гостиница «Шали-Сити» расположена в центре города Шали, рядом с мечетью, торговым центром «Лейла» и березовым парком. Номера с кондиционером и ванной комнатой, бесплатный Wi-Fi, парковка и трансфер.</p>",
+    "summary": "«Шали-Сити» — популярная гостиница в центре Шали с парковкой и бесплатным Wi-Fi.",
+    "address": {
+      "street": "ул. Ивановская, д. 4",
+      "city": "Шали",
+      "state": "Чечня",
+      "postalCode": "",
+      "country": "Россия"
+    },
+    "fromCenter": "0.3 км",
+    "contact": {
+      "phone": "+7 (921) 782-25-31",
+      "email": "",
+      "website": ""
+    },
+    "location": {
+      "latitude": null,
+      "longitude": null
+    },
+    "rating": 9.3,
+    "ratingText": "Отлично",
+    "pricePerNight": {
+      "min": 3400,
+      "max": null,
+      "currency": "RUB"
+    },
+    "amenities": [
+      "Wi-Fi", "Кондиционер", "Фен", "Круглосуточная стойка регистрации", "Автостоянка / Парковка", "Трансфер", "ЖК-телевизор"
+    ],
+    "reviews": 46,
+    "policies": {
+      "checkIn": "",
+      "checkOut": "",
+      "cancellation": "",
+      "petPolicy": ""
+    },
+    "lastUpdated": "2025-06-18T12:00:00Z"
+  },
+  {
+    "id": "11",
+    "name": "Гостиница 4 Сезона",
+    "slug": "4-sezona-grozny",
+    "description": "<p class='text-gray-700 mb-6'>Гостиница «4 Сезона» находится в Грозном недалеко от центра города. К услугам гостей бесплатная парковка, Wi-Fi, трансфер за доплату и вкусные завтраки. В шаговой доступности Аллея Славы, музеи и рестораны.</p>",
+    "summary": "Уютная гостиница в центре Грозного с парковкой и завтраками.",
+    "address": {
+      "street": "ул. Маяковского, д. 5",
+      "city": "Грозный",
+      "state": "Чечня",
+      "postalCode": "",
+      "country": "Россия"
+    },
+    "fromCenter": "1.8 км",
+    "contact": {
+      "phone": "+7 (938) 427-18-75",
+      "email": "",
+      "website": ""
+    },
+    "location": {
+      "latitude": null,
+      "longitude": null
+    },
+    "rating": 7.9,
+    "ratingText": "Нормально",
+    "pricePerNight": {
+      "min": 3000,
+      "max": null,
+      "currency": "RUB"
+    },
+    "amenities": [
+      "Wi-Fi",
+      "Кондиционер",
+      "Сейф",
+      "Круглосуточная стойка регистрации",
+      "Автостоянка / Парковка",
+      "Трансфер",
+      "ЖК-телевизор"
+    ],
+    "reviews": 121,
+    "policies": {
+      "checkIn": "",
+      "checkOut": "",
+      "cancellation": "",
+      "petPolicy": ""
+    },
+    "lastUpdated": "2025-06-18T12:00:00Z"
+  },
+  {
+    "id": "12",
+    "name": "Гостиница Спорт Грозный",
+    "slug": "sport-grozny",
+    "description": "<p class='text-gray-700 mb-6'>Четырехэтажная гостиница «Спорт» в Грозном с бесплатной парковкой, бассейном, сауной и бильярдной. Рядом драматический театр и кафе. Номера с собственными ванными. Трансфер за доплату.</p>",
+    "summary": "Отель с бассейном и сауной в центре Грозного, недалеко от театра и рынка.",
+    "address": {
+      "street": "ул. Грибоедова, д. 110",
+      "city": "Грозный",
+      "state": "Чечня",
+      "postalCode": "",
+      "country": "Россия"
+    },
+    "fromCenter": "1.0 км",
+    "contact": {
+      "phone": "+7 (931) 629-04-75",
+      "email": "",
+      "website": ""
+    },
+    "location": {
+      "latitude": null,
+      "longitude": null
+    },
+    "rating": 8.7,
+    "ratingText": "Хорошо",
+    "pricePerNight": {
+      "min": 3000,
+      "max": null,
+      "currency": "RUB"
+    },
+    "amenities": [
+      "Wi-Fi",
+      "Кондиционер",
+      "Круглосуточная стойка регистрации",
+      "Автостоянка / Парковка",
+      "Бассейн",
+      "Трансфер",
+      "ЖК-телевизор",
+      "Сауна / SPA"
+    ],
+    "reviews": 108,
+    "policies": {
+      "checkIn": "",
+      "checkOut": "",
+      "cancellation": "",
+      "petPolicy": ""
+    },
+    "lastUpdated": "2025-06-18T12:00:00Z"
+  },
+  {
+    "id": "13",
+    "name": "Отель Edelweiss",
+    "slug": "edelweiss-veduchi",
+    "description": "<p class='text-gray-700 mb-6'>Отель «Edelweiss» расположен в селе Ведучи, Чеченская Республика. Гостиница предлагает бесплатный Wi-Fi, парковку, бассейн, тренажерный зал и бильярдную. Номера с видом на горы оборудованы всем необходимым для комфортного отдыха.</p>",
+    "summary": "Отель с бассейном, спортзалом и бильярдом в Ведучи с видом на горы.",
+    "address": {
+      "street": "",
+      "city": "с. Ведучи",
+      "state": "Итум-Калинский р-н, Чечня",
+      "postalCode": "",
+      "country": "Россия"
+    },
+    "fromCenter": "1.6 км",
+    "contact": {
+      "phone": "+7 (921) 790-54-64",
+      "email": "",
+      "website": ""
+    },
+    "location": {
+      "latitude": null,
+      "longitude": null
+    },
+    "rating": 9.1,
+    "ratingText": "Очень хорошо",
+    "pricePerNight": {
+      "min": 4000,
+      "max": null,
+      "currency": "RUB"
+    },
+    "amenities": [
+      "Wi-Fi",
+      "Бассейн",
+      "Тренажёрный зал",
+      "Бильярдная",
+      "Автостоянка / Парковка",
+      "Электрический чайник",
+      "Холодильник",
+      "Безопасность",
+      "Огнетушители",
+      "Датчики дыма",
+      "Охраняемая территория",
+      "Видеонаблюдение",
+      "Охранная сигнализация",
+      "Игровая комната",
+      "Панорамный вид"
+    ],
+    "reviews": 7,
+    "policies": {
+      "checkIn": "",
+      "checkOut": "",
+      "cancellation": "",
+      "petPolicy": ""
+    },
+    "lastUpdated": "2025-06-18T12:00:00Z"
+  },
+  {
+    "id": "14",
+    "name": "Гостевой дом Беной Тревел",
+    "slug": "benoy-travel-gudermes",
+    "description": "<p class='text-gray-700 mb-6'>Гостевой дом «Беной Тревел» в Гудермесе предлагает уютные номера с кондиционерами, телевизорами и бесплатным Wi-Fi. Санузлы общие на этаже. Рядом ресторан и магазин. Бронирование с моментальным подтверждением.</p>",
+    "summary": "Уютный гостевой дом с кондиционерами и Wi-Fi в Гудермесе, рядом аквапарк и центр города.",
+    "address": {
+      "street": "ул. Ерёменко, д. 41",
+      "city": "Гудермес",
+      "state": "Чеченская Республика",
+      "postalCode": "",
+      "country": "Россия"
+    },
+    "fromCenter": "3.3 км",
+    "contact": {
+      "phone": "+7 (999) 000-00-00",
+      "email": "",
+      "website": ""
+    },
+    "location": {
+      "latitude": null,
+      "longitude": null
+    },
+    "rating": 9.8,
+    "ratingText": "Великолепно",
+    "pricePerNight": {
+      "min": 800,
+      "max": null,
+      "currency": "RUB"
+    },
+    "amenities": [
+      "Wi-Fi",
+      "Кондиционер",
+      "Телевизор",
+      "Круглосуточная стойка регистрации",
+      "Без залога"
+    ],
+    "reviews": 2,
+    "policies": {
+      "checkIn": "",
+      "checkOut": "",
+      "cancellation": "",
+      "petPolicy": ""
+    },
+    "lastUpdated": "2025-06-18T12:00:00Z"
+  },
+  {
+    "id": "15",
+    "name": "Санаторий Серноводск-Кавказский",
+    "slug": "sarnovodsk-kavkazskiy",
+    "description": "<p class='text-gray-700 mb-6'>Санаторий «Серноводск-Кавказский» 3* в селе Серноводское предлагает комфортные номера с кондиционером, ТВ и Wi-Fi. На территории бассейн, сауна, фитнес-зал, бильярд, охраняемая парковка. Лечение заболеваний дыхательной, нервной и опорно-двигательной систем. Ресторан с разнообразным меню.</p>",
+    "summary": "Комфортный санаторий с лечением, бассейном и фитнес-залом в Серноводском.",
+    "address": {
+      "street": "курорт \"Серноводск-Кавказский\", д. 4",
+      "city": "Серноводское",
+      "district": "Сунженский р-он",
+      "region": "Чечня",
+      "country": "Россия"
+    },
+    "fromCenter": "3.0 км",
+    "contact": {
+      "phone": "+7 (921) 782-33-64",
+      "email": "",
+      "website": "https://101Hotels.com"
+    },
+    "location": {
+      "latitude": null,
+      "longitude": null
+    },
+    "rating": 8.9,
+    "ratingText": "Очень хорошо",
+    "pricePerNight": {
+      "min": 4200,
+      "max": null,
+      "currency": "RUB"
+    },
+    "amenities": [
+      "Бассейн",
+      "Сауна / SPA",
+      "Wi-Fi",
+      "Фитнес-центр / Тренажерный зал",
+      "Автостоянка / Парковка",
+      "Лечение опорно-двигательного аппарата",
+      "Лечение заболеваний нервной системы",
+      "Лечение заболеваний ЖКТ",
+      "Лечение и профилактика заболеваний дыхательной системы",
+      "Грязелечение",
+      "Электрический чайник",
+      "Кондиционер",
+      "ЖК-телевизор",
+      "Бар / Ресторан"
+    ],
+    "reviews": 18,
+    "policies": {},
+    "lastUpdated": "2025-06-18T12:00:00Z"
+  },    
+  {
+    "id": "16",
+    "name": "Гостиница ДАЙМОХК",
+    "slug": "daymohk-grozny",
+    "description": "<p class='text-gray-700 mb-6'>Гостиница «ДАЙМОХК» в Грозном предлагает комфортные номера категорий Стандарт и Полулюкс с удобной мебелью, техникой и ванной комнатой. На территории кафе, бесплатная охраняемая парковка и трансфер (за доплату). Рядом автовокзал и церковь Михаила Архангела.</p>",
+    "summary": "Комфортная гостиница с кафе, парковкой и трансфером недалеко от центра Грозного.",
+    "address": {
+      "street": "ул. Дербентская, д. 79",
+      "city": "Грозный",
+      "region": "Чеченская Республика",
+      "country": "Россия"
+    },
+    "fromCenter": "3.3 км",
+    "contact": {
+      "phone": "",
+      "email": "",
+      "website": ""
+    },
+    "location": {
+      "latitude": null,
+      "longitude": null
+    },
+    "rating": 9.4,
+    "ratingText": "Отлично",
+    "pricePerNight": {
+      "min": 2000,
+      "max": null,
+      "currency": "RUB"
+    },
+    "amenities": [
+      "Wi-Fi",
+      "Кондиционер",
+      "Круглосуточная стойка регистрации",
+      "Бар / Ресторан",
+      "Автостоянка / Парковка",
+      "Трансфер"
+    ],
+    "reviews": 11,
+    "policies": {},
+    "lastUpdated": "2025-06-18T12:00:00Z"
+  },
+  {
+    "id": "17",
+    "name": "Отель Continent",
+    "slug": "continent-grozny",
+    "description": "<p class='text-gray-700 mb-6'>Отель «Continent» в Грозном, открытый в 2016 году, предлагает 18 уютных номеров от стандартных до апартаментов с мебелью и живописным видом. В здании кафе, супермаркет, фитнес-центр и охраняемая парковка. В пяти минутах езды — мечеть «Сердце Чечни».</p>",
+    "summary": "Современный отель с фитнес-центром, кафе и парковкой в Грозном.",
+    "address": {
+      "street": "ул. Айдамирова, д. 190",
+      "city": "Грозный",
+      "region": "Чеченская Республика",
+      "country": "Россия"
+    },
+    "fromCenter": "3.2 км",
+    "contact": {
+      "phone": "+7 (931) 629-04-03",
+      "email": "",
+      "website": ""
+    },
+    "location": {
+      "latitude": null,
+      "longitude": null
+    },
+    "rating": 9.3,
+    "ratingText": "Отлично",
+    "pricePerNight": {
+      "min": 3500,
+      "max": null,
+      "currency": "RUB"
+    },
+    "amenities": [
+      "Wi-Fi",
+      "Кондиционер",
+      "Фен",
+      "Сейф",
+      "Круглосуточная стойка регистрации",
+      "Бар / Ресторан",
+      "Автостоянка / Парковка",
+      "Трансфер",
+      "ЖК-телевизор",
+      "Сауна / SPA"
+    ],
+    "reviews": 209,
+    "policies": {},
+    "lastUpdated": "2025-06-18T12:00:00Z"
+  },
+  {
+    "id": "18",
+    "name": "Отель Аргун City",
+    "slug": "argun-city-hotel",
+    "description": "<p class='text-gray-700 mb-6'>Отель «Аргун City» в Аргуне открылся в 2014 году и предлагает 40 номеров с уютной атмосферой и приятным интерьером. На территории кафе с видом на город, бесплатная парковка и Wi-Fi. В шаговой доступности магазины, рестораны и остановки транспорта.</p>",
+    "summary": "Уютный отель с кафе и бесплатной парковкой в центре Аргуна.",
+    "address": {
+      "street": "ул. Шоссейная, д. 110, 663 км трассы М-29 (Р217)",
+      "city": "Аргун",
+      "region": "Чеченская Республика",
+      "country": "Россия"
+    },
+    "fromCenter": "1.4 км",
+    "contact": {
+      "phone": "+7 (931) 628-94-26",
+      "email": "",
+      "website": ""
+    },
+    "location": {
+      "latitude": null,
+      "longitude": null
+    },
+    "rating": 8.7,
+    "ratingText": "Хорошо",
+    "pricePerNight": {
+      "min": 2000,
+      "max": null,
+      "currency": "RUB"
+    },
+    "amenities": [
+      "Wi-Fi",
+      "Кондиционер",
+      "Сейф",
+      "Круглосуточная стойка регистрации",
+      "Бар / Ресторан",
+      "Автостоянка / Парковка"
+    ],
+    "reviews": 13,
+    "policies": {},
+    "lastUpdated": "2025-06-18T12:00:00Z"
+  },
+  {
+    "id": "19",
+    "name": "Отель Hollywood 2",
+    "slug": "hollywood-2-grozny",
+    "description": "<p class='text-gray-700 mb-6'>Отель «Hollywood 2» в Грозном занимает третий этаж торгово-развлекательного центра. Здесь 10 номеров с кондиционером и ЖК-телевизором. К услугам гостей бесплатный Wi-Fi, парковка и трансфер за дополнительную плату. Рядом парк Антона Чехова и стадион «Ахмат-Арена».</p>",
+    "summary": "Современный отель с удобствами в центре Грозного.",
+    "address": {
+      "street": "пр-т Мохаммеда Али, д. 14",
+      "city": "Грозный",
+      "region": "Чеченская Республика",
+      "country": "Россия"
+    },
+    "fromCenter": "2.0 км",
+    "contact": {
+      "phone": "",
+      "email": "",
+      "website": ""
+    },
+    "location": {
+      "latitude": null,
+      "longitude": null
+    },
+    "rating": 9.3,
+    "ratingText": "Отлично",
+    "pricePerNight": {
+      "min": 2500,
+      "max": null,
+      "currency": "RUB"
+    },
+    "amenities": [
+      "Wi-Fi",
+      "Кондиционер",
+      "Круглосуточная стойка регистрации",
+      "Автостоянка / Парковка",
+      "Трансфер",
+      "ЖК-телевизор",
+      "Сауна / SPA"
+    ],
+    "reviews": 277,
+    "policies": {},
+    "lastUpdated": "2025-06-18T12:00:00Z"
+  },
+  {
+    "id": "20",
+    "name": "Отель Тийналла",
+    "slug": "tiynalla",
+    "description": "<p class='text-gray-700 mb-6'>Отель «Тийналла» расположен в спокойном районе Грозного. Предлагает комфортабельные номера с современным оборудованием, бесплатный Wi-Fi, парковку и трансфер от/до аэропорта (платно). Есть фитнес-центр, спа, конференц-зал и ресторан с блюдами чеченской кухни.</p>",
+    "summary": "Комфортный отель с удобствами и услугами в Грозном.",
+    "address": {
+      "street": "ул. Мамсурова, д. 6а",
+      "city": "Грозный",
+      "region": "Чеченская Республика",
+      "country": "Россия"
+    },
+    "fromCenter": "6.8 км",
+    "contact": {
+      "phone": "+7 (921) 784-73-54",
+      "email": "",
+      "website": ""
+    },
+    "location": {
+      "latitude": null,
+      "longitude": null
+    },
+    "rating": 9.3,
+    "ratingText": "Отлично",
+    "pricePerNight": {
+      "min": 5500,
+      "max": null,
+      "currency": "RUB"
+    },
+    "amenities": [
+      "Wi-Fi",
+      "Кондиционер",
+      "Круглосуточная стойка регистрации",
+      "Бар / Ресторан",
+      "Автостоянка / Парковка",
+      "Трансфер",
+      "ЖК-телевизор",
+      "Сауна / SPA"
+    ],
+    "featured": "/images/hotels/tiynalla/featured.jpg",
+    "images": [
+      "/images/hotels/tiynalla/gallery1.jpg",
+      "/images/hotels/tiynalla/gallery2.jpg",
+      "/images/hotels/tiynalla/gallery3.jpg",
+      "/images/hotels/tiynalla/gallery4.jpg",
+      "/images/hotels/tiynalla/gallery5.jpg"
+    ],
+    "reviews": 142,
+    "policies": {},
+    "lastUpdated": "2025-06-18T12:00:00Z"
+  }
+                          
+]

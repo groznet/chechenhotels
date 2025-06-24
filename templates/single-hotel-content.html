@@ -1,0 +1,760 @@
+
+<section id="hotel-hero-section" class="hero-bg text-white py-16" style="background-image: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), url('{{featured}}'); background-size: cover; background-position: center;">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between">
+            <div class="md:w-2/3">
+                <div class="flex items-center mb-4">
+                    <div class="rating-stars text-xl mr-3">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <span class="bg-accent px-3 py-1 rounded-full font-bold">{{ratingScore}}</span>
+                </div>
+                <h1 class="text-4xl md:text-5xl font-bold mb-4 font-display">{{name}}</h1>
+                <p class="text-xl mb-6 max-w-2xl">{{summary}}</p>
+                
+                <div class="flex flex-wrap gap-3 mb-6">
+                    <span class="bg-white/20 px-4 py-2 rounded-full text-sm"><i class="fas fa-map-marker-alt mr-2"></i> {{address}}</span>
+                    <span class="bg-white/20 px-4 py-2 rounded-full text-sm"><i class="fas fa-phone mr-2"></i> {{phone}}</span>
+                    <span class="bg-white/20 px-4 py-2 rounded-full text-sm"><i class="fas fa-globe mr-2"></i> <a href="http://{{website}}">{{website}}</a></span>
+                </div>
+                
+                <div class="flex flex-wrap gap-3">
+                    <button class="bg-accent hover:bg-accent/90 text-white px-6 py-3 rounded-lg font-medium transition flex items-center">
+                        <i class="fas fa-calendar-alt mr-2"></i> Забронировать номер
+                    </button>
+                    <button class="bg-white/20 hover:bg-white/30 text-white px-6 py-3 rounded-lg font-medium transition flex items-center">
+                        <i class="fas fa-heart mr-2"></i> В избранное
+                    </button>
+                    <button class="bg-white/20 hover:bg-white/30 text-white px-6 py-3 rounded-lg font-medium transition flex items-center">
+                        <i class="fas fa-share-alt mr-2"></i> Поделиться
+                    </button>
+                </div>
+            </div>
+            
+            <div class="mt-8 md:mt-0 md:w-1/3">
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+                    <h3 class="text-xl font-bold mb-4">Средняя цена за ночь</h3>
+                    <div class="flex items-end mb-4">
+                        <span class="text-3xl font-bold">{{priceAverage}}₽</span>
+                        <span class="ml-2 text-gray-300">(за стандартный номер)</span>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="flex justify-between">
+                            <span>Стоимость номеров от:</span>
+                            <span class="font-medium">{{priceMin}}₽</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Стоимость номеров до:</span>
+                            <span class="font-medium">{{priceMax}}₽</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Налоги и сборы:</span>
+                            <span class="font-medium">Включены</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+</section>
+
+<!-- Gallery Section -->
+<section id="hotel-gallery-section" class="py-12 bg-white">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold mb-8 text-center font-display">Фотогалерея отеля</h2>
+        
+        <div id="hotel-gallery" class="gallery-grid mb-8">
+            <script>
+                const galleryHTML = hotel.gallery.map(src => `
+                    <div class="gallery-item rounded-xl overflow-hidden">
+                        <img src="${src}" alt="" class="w-full h-full object-cover">
+                    </div>
+                `).join('');
+
+                document.getElementById('hotel-gallery').innerHTML = galleryHTML;                
+            </script>
+        </div>
+        
+        <div class="text-center">
+            <button disabled class="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-lg font-medium transition">
+                <i class="fas fa-images mr-2"></i> Показать все 48 фото
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- Main Content -->
+<main class="py-12">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-col lg:flex-row gap-8">
+            <!-- Hotel Info - loaded dynamically via JS -->
+            <div id="hotel-details" class="lg:w-2/3">
+                <!-- Tabs Navigation -->
+                <div class="flex border-b border-gray-200 mb-8 overflow-x-auto">
+                    <button class="tab-btn py-4 px-6 font-medium border-b-2 border-transparent hover:text-primary transition" data-tab="overview">Обзор</button>
+                    <button class="tab-btn py-4 px-6 font-medium border-b-2 border-transparent hover:text-primary transition" data-tab="rooms">Номера</button>
+                    <button class="tab-btn py-4 px-6 font-medium border-b-2 border-transparent hover:text-primary transition" data-tab="services">Услуги</button>
+                    <button class="tab-btn py-4 px-6 font-medium border-b-2 border-transparent hover:text-primary transition" data-tab="reviews">Отзывы ({{reviews}})</button>
+                    <button class="tab-btn py-4 px-6 font-medium border-b-2 border-transparent hover:text-primary transition" data-tab="location">Расположение</button>
+                    <button class="tab-btn py-4 px-6 font-medium border-b-2 border-transparent hover:text-primary transition" data-tab="policies">Правила</button>
+                </div>
+
+                <!-- Tab Content -->
+                <div class="tab-content active" id="overview">
+                    <h3 class="text-2xl font-bold mb-6 font-display">О Гранд Отеле Грозный</h3>
+                    <p class="text-gray-700 mb-6">
+                        {{description}}
+                    </p>
+                    <p class="text-gray-700 mb-6">
+                        Открытый в 2020 году, отель быстро завоевал репутацию одного из лучших в регионе благодаря безупречному сервису, 
+                        вниманию к деталям и современному дизайну. Все номера оснащены кондиционером, бесплатным Wi-Fi, мини-баром, 
+                        сейфом и телевизором с плоским экраном.
+                    </p>
+                    
+                    <h4 class="text-xl font-bold mb-4 mt-8">Основные преимущества</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div class="flex items-start">
+                            <div class="feature-icon w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-wifi text-primary text-lg"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold mb-1">Бесплатный Wi-Fi</h5>
+                                <p class="text-gray-600">Высокоскоростной интернет на всей территории отеля</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="feature-icon w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-swimming-pool text-primary text-lg"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold mb-1">Бассейн и SPA</h5>
+                                <p class="text-gray-600">Крытый бассейн и полноценный спа-центр</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="feature-icon w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-utensils text-primary text-lg"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold mb-1">3 ресторана</h5>
+                                <p class="text-gray-600">Международная, кавказская и европейская кухни</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="feature-icon w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-concierge-bell text-primary text-lg"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold mb-1">Круглосуточный сервис</h5>
+                                <p class="text-gray-600">Ресепшн, обслуживание номеров и консьерж-сервис</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-light rounded-xl p-6 mb-8">
+                        <h4 class="text-xl font-bold mb-4">Информация о заезде/выезде</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <p class="font-bold">Заезд:</p>
+                                <p class="text-gray-700">14:00 - 00:00</p>
+                            </div>
+                            <div>
+                                <p class="font-bold">Выезд:</p>
+                                <p class="text-gray-700">07:00 - 12:00</p>
+                            </div>
+                            <div>
+                                <p class="font-bold">Отмена/предоплата:</p>
+                                <p class="text-gray-700">Условия зависят от типа номера. Подробности при бронировании.</p>
+                            </div>
+                            <div>
+                                <p class="font-bold">Домашние животные:</p>
+                                <p class="text-gray-700">Разрешены по запросу. Может взиматься дополнительная плата.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rooms Tab -->
+                <div class="tab-content" id="rooms">
+                    <h3 class="text-2xl font-bold mb-6 font-display">Номера и люксы</h3>
+                    <p class="text-gray-700 mb-8">Гранд Отель Грозный предлагает 120 роскошных номеров различных категорий, от стандартных до президентских люксов. Все номера оснащены современной техникой и мебелью, обеспечивая максимальный комфорт.</p>
+                    
+                    <!-- Room 1 -->
+                    <div class="room-card bg-white rounded-xl shadow-lg overflow-hidden mb-8">
+                        <div class="md:flex">
+                            <div class="md:w-2/5">
+                                <img src="/images/rooms/standard.jpg" alt="Стандартный номер" class="w-full h-64 md:h-full object-cover">
+                            </div>
+                            <div class="p-6 md:w-3/5">
+                                <div class="flex justify-between items-start mb-4">
+                                    <div>
+                                        <h4 class="text-xl font-bold">Стандартный номер</h4>
+                                        <p class="text-gray-600 mt-1">Площадь: 25 м² • Макс. гостей: 2</p>
+                                    </div>
+                                    <div class="text-primary font-bold text-xl">от 3 200₽</div>
+                                </div>
+                                
+                                <div class="mb-4 flex items-center">
+                                    <div class="rating-stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <span class="ml-2 text-gray-600">(87 отзывов)</span>
+                                </div>
+                                
+                                <p class="text-gray-700 mb-4">
+                                    Уютный стандартный номер с одной двуспальной кроватью или двумя односпальными кроватями. 
+                                    Идеально подходит для деловых поездок и короткого отдыха.
+                                </p>
+                                
+                                <div class="flex flex-wrap gap-2 mb-6">
+                                    <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Кондиционер</span>
+                                    <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Wi-Fi</span>
+                                    <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Телевизор</span>
+                                    <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Сейф</span>
+                                </div>
+                                
+                                <div class="flex justify-between items-center">
+                                    <a href="#" class="text-primary font-medium hover:text-accent transition flex items-center">
+                                        Подробнее <i class="fas fa-chevron-right ml-2 text-xs"></i>
+                                    </a>
+                                    <button class="bg-primary hover:bg-primary/90 text-white px-6 py-2 rounded-lg font-medium transition">
+                                        Забронировать
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Room 2 -->
+                    <div class="room-card bg-white rounded-xl shadow-lg overflow-hidden mb-8">
+                        <div class="md:flex">
+                            <div class="md:w-2/5">
+                                <img src="/images/rooms/delux.jpg" alt="Делюкс номер" class="w-full h-64 md:h-full object-cover">
+                            </div>
+                            <div class="p-6 md:w-3/5">
+                                <div class="flex justify-between items-start mb-4">
+                                    <div>
+                                        <h4 class="text-xl font-bold">Номер Делюкс</h4>
+                                        <p class="text-gray-600 mt-1">Площадь: 35 м² • Макс. гостей: 3</p>
+                                    </div>
+                                    <div class="text-primary font-bold text-xl">от 5 800₽</div>
+                                </div>
+                                
+                                <div class="mb-4 flex items-center">
+                                    <div class="rating-stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <span class="ml-2 text-gray-600">(65 отзывов)</span>
+                                </div>
+                                
+                                <p class="text-gray-700 mb-4">
+                                    Просторный номер категории Делюкс с видом на город. Включает зону отдыха, рабочее место 
+                                    и современную ванную комнату с джакузи.
+                                </p>
+                                
+                                <div class="flex flex-wrap gap-2 mb-6">
+                                    <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Джакузи</span>
+                                    <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Кофемашина</span>
+                                    <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Халаты</span>
+                                    <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Мини-бар</span>
+                                </div>
+                                
+                                <div class="flex justify-between items-center">
+                                    <a href="#" class="text-primary font-medium hover:text-accent transition flex items-center">
+                                        Подробнее <i class="fas fa-chevron-right ml-2 text-xs"></i>
+                                    </a>
+                                    <button class="bg-primary hover:bg-primary/90 text-white px-6 py-2 rounded-lg font-medium transition">
+                                        Забронировать
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Room 3 -->
+                    <div class="room-card bg-white rounded-xl shadow-lg overflow-hidden">
+                        <div class="md:flex">
+                            <div class="md:w-2/5">
+                                <img src="/images/rooms/president.jpg" alt="Президентский люкс" class="w-full h-64 md:h-full object-cover">
+                            </div>
+                            <div class="p-6 md:w-3/5">
+                                <div class="flex justify-between items-start mb-4">
+                                    <div>
+                                        <h4 class="text-xl font-bold">Президентский люкс</h4>
+                                        <p class="text-gray-600 mt-1">Площадь: 120 м² • Макс. гостей: 4</p>
+                                    </div>
+                                    <div class="text-primary font-bold text-xl">от 25 000₽</div>
+                                </div>
+                                
+                                <div class="mb-4 flex items-center">
+                                    <div class="rating-stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <span class="ml-2 text-gray-600">(32 отзыва)</span>
+                                </div>
+                                
+                                <p class="text-gray-700 mb-4">
+                                    Роскошный двухуровневый люкс с панорамным видом на город. Включает гостиную, столовую, 
+                                    спальню, две ванные комнаты и отдельный кабинет. Персональный консьерж 24/7.
+                                </p>
+                                
+                                <div class="flex flex-wrap gap-2 mb-6">
+                                    <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Панорамный вид</span>
+                                    <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Персональный консьерж</span>
+                                    <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Отдельная терраса</span>
+                                    <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Домашний кинотеатр</span>
+                                </div>
+                                
+                                <div class="flex justify-between items-center">
+                                    <a href="#" class="text-primary font-medium hover:text-accent transition flex items-center">
+                                        Подробнее <i class="fas fa-chevron-right ml-2 text-xs"></i>
+                                    </a>
+                                    <button class="bg-primary hover:bg-primary/90 text-white px-6 py-2 rounded-lg font-medium transition">
+                                        Забронировать
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Services Tab -->
+                <div class="tab-content" id="services">
+                    <h3 class="text-2xl font-bold mb-6 font-display">Услуги и удобства</h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                        <div>
+                            <h4 class="text-xl font-bold mb-4">Основные услуги</h4>
+                            <ul class="space-y-3">
+                                <!-- Disable the icon -->
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                    <span>Бесплатный Wi-Fi на всей территории</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                    <span>Крытый бассейн с подогревом</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                    <span>Спа-центр и сауна</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                    <span>Фитнес-центр 24/7</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                    <span>Конференц-залы и бизнес-центр</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                    <span>Парковка (платная)</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                    <span>Трансфер от/до аэропорта</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-bold mb-4">Питание</h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                    <span>Ресторан "Горцы" (кавказская кухня)</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                    <span>Ресторан "Европа" (международная кухня)</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                    <span>Лобби-бар и лаунж-зона</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                    <span>Завтрак "шведский стол" (включен в стоимость)</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                    <span>Обслуживание номеров 24/7</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                    <span>Вегетарианское и диетическое меню</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-light rounded-xl p-6">
+                        <h4 class="text-xl font-bold mb-4">Спа-центр и оздоровление</h4>
+                        <p class="text-gray-700 mb-6">
+                            Наш спа-центр предлагает широкий спектр процедур для релаксации и восстановления. 
+                            Профессиональные массажисты, турецкая баня, финская сауна и современный тренажерный зал.
+                        </p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="text-center bg-white p-4 rounded-lg">
+                                <div class="text-primary text-3xl mb-2">
+                                    <i class="fas fa-spa"></i>
+                                </div>
+                                <h5 class="font-bold mb-1">Спа-процедуры</h5>
+                                <p class="text-sm text-gray-600">Массажи, обертывания, уход за лицом</p>
+                            </div>
+                            <div class="text-center bg-white p-4 rounded-lg">
+                                <div class="text-primary text-3xl mb-2">
+                                    <i class="fas fa-hot-tub"></i>
+                                </div>
+                                <h5 class="font-bold mb-1">Сауна и хамам</h5>
+                                <p class="text-sm text-gray-600">Турецкая баня, финская сауна</p>
+                            </div>
+                            <div class="text-center bg-white p-4 rounded-lg">
+                                <div class="text-primary text-3xl mb-2">
+                                    <i class="fas fa-dumbbell"></i>
+                                </div>
+                                <h5 class="font-bold mb-1">Фитнес-центр</h5>
+                                <p class="text-sm text-gray-600">Современные тренажеры, кардиозона</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reviews Tab -->
+                <div class="tab-content" id="reviews">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
+                        <h3 class="text-2xl font-bold font-display">Отзывы гостей</h3>
+                        <div class="mt-4 md:mt-0">
+                            <button class="bg-primary hover:bg-primary/90 text-white px-6 py-2 rounded-lg font-medium transition">
+                                <i class="fas fa-pen mr-2"></i> Написать отзыв
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Rating Summary -->
+                    <div class="bg-light rounded-xl p-6 mb-8">
+                        <div class="flex flex-col md:flex-row items-center">
+                            <div class="text-center mb-6 md:mb-0 md:mr-8">
+                                <div class="text-5xl font-bold text-primary">{{ratingScore}}</div>
+                                <div class="rating-stars text-xl mt-2">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <p class="text-gray-600 mt-2">{{reviews}} отзыва</p>
+                            </div>
+                            
+                            <div class="flex-grow">
+                                <div class="flex items-center mb-2">
+                                    <span class="w-16 text-gray-600">Чистота</span>
+                                    <div class="w-48 bg-gray-200 rounded-full h-2.5 mx-4">
+                                        <div class="bg-green-600 h-2.5 rounded-full" style="width: 98%"></div>
+                                    </div>
+                                    <span class="w-8 text-right font-bold">9.8</span>
+                                </div>
+                                <div class="flex items-center mb-2">
+                                    <span class="w-16 text-gray-600">Комфорт</span>
+                                    <div class="w-48 bg-gray-200 rounded-full h-2.5 mx-4">
+                                        <div class="bg-green-600 h-2.5 rounded-full" style="width: 96%"></div>
+                                    </div>
+                                    <span class="w-8 text-right font-bold">9.6</span>
+                                </div>
+                                <div class="flex items-center mb-2">
+                                    <span class="w-16 text-gray-600">Персонал</span>
+                                    <div class="w-48 bg-gray-200 rounded-full h-2.5 mx-4">
+                                        <div class="bg-green-600 h-2.5 rounded-full" style="width: 99%"></div>
+                                    </div>
+                                    <span class="w-8 text-right font-bold">9.9</span>
+                                </div>
+                                <div class="flex items-center mb-2">
+                                    <span class="w-16 text-gray-600">Соотношение цена/качество</span>
+                                    <div class="w-48 bg-gray-200 rounded-full h-2.5 mx-4">
+                                        <div class="bg-green-600 h-2.5 rounded-full" style="width: 94%"></div>
+                                    </div>
+                                    <span class="w-8 text-right font-bold">9.4</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="w-16 text-gray-600">Расположение</span>
+                                    <div class="w-48 bg-gray-200 rounded-full h-2.5 mx-4">
+                                        <div class="bg-green-600 h-2.5 rounded-full" style="width: 97%"></div>
+                                    </div>
+                                    <span class="w-8 text-right font-bold">9.7</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Review Filters -->
+                    <div class="flex flex-wrap gap-3 mb-8">
+                        <button class="bg-primary text-white px-4 py-2 rounded-full text-sm">Все</button>
+                        <button class="bg-gray-100 hover:bg-gray-200 px-4 py-2 rounded-full text-sm">Семейные</button>
+                        <button class="bg-gray-100 hover:bg-gray-200 px-4 py-2 rounded-full text-sm">Для пар</button>
+                        <button class="bg-gray-100 hover:bg-gray-200 px-4 py-2 rounded-full text-sm">Бизнес</button>
+                        <button class="bg-gray-100 hover:bg-gray-200 px-4 py-2 rounded-full text-sm">С фото</button>
+                        <button class="bg-gray-100 hover:bg-gray-200 px-4 py-2 rounded-full text-sm">С видео</button>
+                    </div>
+                    
+                    <!-- Reviews List -->
+                    <div class="space-y-6">
+                        <!-- Review 1 -->
+                        <div class="review-card bg-white rounded-xl shadow-md p-6">
+                            <div class="flex flex-col md:flex-row md:items-center mb-4">
+                                <div class="flex items-center mb-3 md:mb-0">
+                                    <div class="w-12 h-12 rounded-full bg-gray-200 mr-4"></div>
+                                    <div>
+                                        <h4 class="font-bold">Марина Иванова</h4>
+                                        <p class="text-gray-600 text-sm">Москва • 15-18 мая 2023</p>
+                                    </div>
+                                </div>
+                                <div class="md:ml-auto">
+                                    <div class="rating-stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <h5 class="font-bold text-lg mb-2">Лучший отель в Грозном!</h5>
+                            <p class="text-gray-700 mb-4">
+                                Останавливались с мужем на выходные. Прекрасный отель с отличным сервисом! 
+                                Номер был чистым и просторным, вид на город просто восхитительный. Особенно понравился 
+                                завтрак - огромный выбор блюд на любой вкус. Персонал очень внимательный и вежливый. 
+                                Обязательно вернемся сюда в следующий приезд!
+                            </p>
+                            
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Стандартный номер</span>
+                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Путешествие парой</span>
+                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">2 ночи</span>
+                            </div>
+                            
+                            <div class="flex items-center text-gray-600">
+                                <button class="flex items-center mr-6 hover:text-primary">
+                                    <i class="far fa-thumbs-up mr-2"></i> 24
+                                </button>
+                                <button class="flex items-center hover:text-primary">
+                                    <i class="far fa-comment mr-2"></i> Ответить
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Review 2 -->
+                        <div class="review-card bg-white rounded-xl shadow-md p-6">
+                            <div class="flex flex-col md:flex-row md:items-center mb-4">
+                                <div class="flex items-center mb-3 md:mb-0">
+                                    <div class="w-12 h-12 rounded-full bg-gray-200 mr-4"></div>
+                                    <div>
+                                        <h4 class="font-bold">Олег Петров</h4>
+                                        <p class="text-gray-600 text-sm">Санкт-Петербург • 3-7 апреля 2023</p>
+                                    </div>
+                                </div>
+                                <div class="md:ml-auto">
+                                    <div class="rating-stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <h5 class="font-bold text-lg mb-2">Идеально для деловой поездки</h5>
+                            <p class="text-gray-700 mb-4">
+                                Останавливался в отеле во время командировки. Номер Делюкс превзошел все ожидания - 
+                                удобная кровать, качественный Wi-Fi, прекрасное рабочее место. Особенно оценил фитнес-центр 
+                                - современное оборудование, открыто круглосуточно. Ресторан "Горцы" - отдельный восторг, 
+                                лучшая кавказская кухня, которую я пробовал. Обслуживание на высшем уровне!
+                            </p>
+                            
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Делюкс номер</span>
+                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Бизнес-поездка</span>
+                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">4 ночи</span>
+                            </div>
+                            
+                            <div class="flex flex-wrap gap-3 mb-4">
+                                <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Фото номера" class="w-24 h-24 object-cover rounded-lg">
+                                <img src="https://images.unsplash.com/photo-1551632436-9a9494b23a07?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Фото ресторана" class="w-24 h-24 object-cover rounded-lg">
+                            </div>
+                            
+                            <div class="flex items-center text-gray-600">
+                                <button class="flex items-center mr-6 hover:text-primary">
+                                    <i class="far fa-thumbs-up mr-2"></i> 18
+                                </button>
+                                <button class="flex items-center hover:text-primary">
+                                    <i class="far fa-comment mr-2"></i> Ответить
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Pagination -->
+                    <div class="mt-12 flex justify-center">
+                        <nav class="inline-flex rounded-md shadow">
+                            <a href="#" class="py-2 px-4 rounded-l-md border border-gray-300 bg-white text-gray-500 hover:bg-gray-50">
+                                <span class="sr-only">Previous</span>
+                                <i class="fas fa-chevron-left"></i>
+                            </a>
+                            <a href="#" class="py-2 px-4 border-t border-b border-gray-300 bg-white text-gray-500 hover:bg-gray-50">1</a>
+                            <a href="#" class="py-2 px-4 border-t border-b border-gray-300 bg-white text-gray-500 hover:bg-gray-50">2</a>
+                            <a href="#" class="py-2 px-4 border-t border-b border-gray-300 bg-white text-gray-500 hover:bg-gray-50">3</a>
+                            <a href="#" class="py-2 px-4 rounded-r-md border border-gray-300 bg-white text-gray-500 hover:bg-gray-50">
+                                <span class="sr-only">Next</span>
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+                        </nav>
+                    </div>
+                </div>
+
+                <!-- If not included, hotel details tabs will not work.  -->
+                <script src="scripts.js"></script>
+            </div>
+            
+            <!-- Booking Sidebar -->
+            <div id="booking-sidebar" class="lg:w-1/3">
+                <div class="sticky-booking bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-xl font-bold mb-6 text-center">Забронировать номер</h3>
+                    
+                    <div class="mb-6">
+                        <label class="block text-gray-700 font-medium mb-2">Даты пребывания</label>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="relative">
+                                <input type="text" placeholder="Заезд" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary">
+                                <i class="fas fa-calendar-alt absolute right-3 top-3.5 text-gray-400"></i>
+                            </div>
+                            <div class="relative">
+                                <input type="text" placeholder="Выезд" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary">
+                                <i class="fas fa-calendar-alt absolute right-3 top-3.5 text-gray-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label class="block text-gray-700 font-medium mb-2">Гости</label>
+                        <div class="relative">
+                            <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary">
+                                <option>1 взрослый</option>
+                                <option selected>2 взрослых</option>
+                                <option>2 взрослых + 1 ребенок</option>
+                                <option>2 взрослых + 2 ребенка</option>
+                                <option>3 взрослых</option>
+                                <option>3 взрослых + 1 ребенок</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label class="block text-gray-700 font-medium mb-2">Тип номера</label>
+                        <div class="relative">
+                            <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary">
+                                <option>Стандартный номер</option>
+                                <option>Номер Делюкс</option>
+                                <option>Семейный номер</option>
+                                <option>Люкс</option>
+                                <option>Президентский люкс</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-light rounded-xl p-4 mb-6">
+                        <div class="flex justify-between py-2">
+                            <span>Цена за 2 ночи:</span>
+                            <span class="font-bold">9 000₽</span>
+                        </div>
+                        <div class="flex justify-between py-2">
+                            <span>Налоги и сборы:</span>
+                            <span class="font-bold">1 200₽</span>
+                        </div>
+                        <div class="flex justify-between py-2 border-t border-gray-300 mt-2 pt-2">
+                            <span class="font-bold">Итого:</span>
+                            <span class="text-xl font-bold text-primary">10 200₽</span>
+                        </div>
+                    </div>
+                    
+                    <button class="w-full bg-accent hover:bg-accent/90 text-white py-4 rounded-lg font-bold text-lg transition">
+                        Забронировать сейчас
+                    </button>
+                    
+                    <p class="text-center text-gray-600 text-sm mt-4">
+                        Бесплатная отмена в течение 48 часов. Оплата при заселении.
+                    </p>
+                </div>
+                
+                <!-- Contact Card -->
+                <div class="bg-white rounded-xl shadow-lg p-6 mt-8">
+                    <h3 class="text-xl font-bold mb-4">Контакты отеля</h3>
+                    
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center mr-3">
+                                <i class="fas fa-phone text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Телефон</h4>
+                                <p class="text-gray-600">{{phone}}</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center mr-3">
+                                <i class="fas fa-envelope text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Email</h4>
+                                <p class="text-gray-600">{{email}}</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center mr-3">
+                                <i class="fas fa-globe text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Веб-сайт</h4>
+                                <p class="text-gray-600">
+                                    <a href="http://{{website}}">{{website}}</a>
+                                </p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center mr-3">
+                                <i class="fas fa-map-marker-alt text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Адрес</h4>
+                                <p class="text-gray-600">{{address}}</p>
+                            </div>
+                        </li>
+                    </ul>
+                    
+                    <button class="w-full mt-6 bg-primary hover:bg-primary/90 text-white py-3 rounded-lg font-medium transition">
+                        <i class="fas fa-directions mr-2"></i> Проложить маршрут
+                    </button>
+                </div>                 
+            </div>
+        </div>
+    </div>
+</main>
+<script src="scripts.js"></script>     
