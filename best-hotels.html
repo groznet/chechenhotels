@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лучшие гостиницы Чечни | Chechen Hotels</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e3a8a',
+                        secondary: '#0f766e',
+                        accent: '#f59e0b',
+                        light: '#f8fafc',
+                        dark: '#0f172a'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Montserrat', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .best-hotels-hero {
+            background-image: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), url('../images/hero-bg.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .hotel-list-item {
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+        .hotel-list-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            border-left-color: #f59e0b;
+        }
+        .rating-stars {
+            color: #f59e0b;
+        }
+        .rank-badge {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .rank-1 {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: #fff;
+        }
+        .rank-2 {
+            background: linear-gradient(135deg, #C0C0C0, #A9A9A9);
+            color: #fff;
+        }
+        .rank-3 {
+            background: linear-gradient(135deg, #CD7F32, #8B4513);
+            color: #fff;
+        }
+        .rank-other {
+            background-color: #1e3a8a;
+            color: white;
+        }
+        .feature-icon {
+            background-color: rgba(30, 58, 138, 0.1);
+        }
+        .btn-primary {
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .tab-active {
+            border-bottom: 3px solid #f59e0b;
+            color: #1e3a8a;
+            font-weight: 600;
+        }
+        .price-slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 6px;
+            border-radius: 3px;
+            background: #e2e8f0;
+            outline: none;
+        }
+        .price-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #1e3a8a;
+            cursor: pointer;
+        }
+        .price-slider::-moz-range-thumb {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #1e3a8a;
+            cursor: pointer;
+        }
+        .filter-section {
+            transition: all 0.3s ease;
+        }
+        .filter-toggle {
+            display: none;
+        }
+        @media (max-width: 1024px) {
+            .filter-section {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 80%;
+                height: 100vh;
+                z-index: 100;
+                background: white;
+                padding: 1.5rem;
+                overflow-y: auto;
+                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            }
+            .filter-section.active {
+                left: 0;
+            }
+            .filter-overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.5);
+                z-index: 99;
+            }
+            .filter-overlay.active {
+                display: block;
+            }
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+</head>
+<body class="font-sans bg-light text-dark">
+    <!-- Header -->
+    <header id="header" class="bg-white shadow-md sticky top-0 z-50" x-data="{ open: false }">
+    </header>
+
+    <!-- Hero Section -->
+    <section class="best-hotels-hero text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6 font-display">Лучшие гостиницы Чеченской Республики</h1>
+            <p class="text-xl max-w-2xl mx-auto opacity-90">Топ отелей по рейтингу гостей и качеству сервиса</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row gap-8">
+                <!-- Filters Section -->
+                <div class="filter-section lg:w-1/4 flex-shrink-0 bg-white rounded-xl shadow-lg p-6 h-fit">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-xl font-bold font-display">Фильтры</h2>
+                        <button class="filter-close lg:hidden text-gray-500">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- Location Filter -->
+                    <div class="mb-6">
+                        <h3 class="font-bold mb-3">Город</h3>
+                        <div class="space-y-2">
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-2 rounded text-primary" checked>
+                                <span>Грозный</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-2 rounded text-primary">
+                                <span>Аргун</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-2 rounded text-primary">
+                                <span>Гудермес</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-2 rounded text-primary">
+                                <span>Шали</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-2 rounded text-primary">
+                                <span>Урус-Мартан</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- Price Filter -->
+                    <div class="mb-6">
+                        <h3 class="font-bold mb-3">Цена за ночь</h3>
+                        <input 
+                            type="range" 
+                            min="0" 
+                            max="10000" 
+                            value="5000" 
+                            class="price-slider mb-4 w-full" 
+                            id="priceRange"
+                            oninput="this.title = `До ${this.value} руб.`"
+                        >
+                        <div class="flex justify-between text-sm">
+                            <span>0 руб.</span>
+                            <span>5000 руб.</span>
+                            <span>10000+ руб.</span>
+                        </div>
+                    </div>
+                    
+                    
+                    <!-- Rating Filter -->
+                    <div class="mb-6">
+                        <h3 class="font-bold mb-3">Рейтинг</h3>
+                        <div class="space-y-2">
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-2 rounded text-primary" checked>
+                                <div class="rating-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span class="ml-2 text-gray-600">(9+)</span>
+                                </div>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-2 rounded text-primary">
+                                <div class="rating-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span class="ml-2 text-gray-600">(8+)</span>
+                                </div>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-2 rounded text-primary">
+                                <div class="rating-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span class="ml-2 text-gray-600">(7+)</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- Facilities Filter -->
+                    <div class="mb-6">
+                        <h3 class="font-bold mb-3">Удобства</h3>
+                        <div class="space-y-2">
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-2 rounded text-primary">
+                                <span>Wi-Fi</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-2 rounded text-primary">
+                                <span>Парковка</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-2 rounded text-primary">
+                                <span>Бассейн</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-2 rounded text-primary">
+                                <span>Ресторан</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-2 rounded text-primary">
+                                <span>SPA</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="mr-2 rounded text-primary">
+                                <span>Завтрак включен</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <button class="w-full bg-primary hover:bg-primary/90 text-white py-3 rounded-lg font-medium transition">
+                        Применить фильтры
+                    </button>
+                    <button class="w-full mt-3 bg-gray-100 hover:bg-gray-200 text-gray-700 py-3 rounded-lg font-medium transition">
+                        Сбросить
+                    </button>
+                </div>
+                
+                <!-- Filter Overlay for Mobile -->
+                <div class="filter-overlay"></div>
+                
+                <!-- Main Content -->
+                <div class="flex-grow">
+                    <!-- Filter Bar -->
+                    <div class="bg-white rounded-xl shadow-lg p-4 mb-8 flex flex-wrap items-center justify-between">
+                        <div class="flex items-center mb-4 lg:mb-0">
+                            <button class="filter-toggle lg:hidden bg-primary text-white px-4 py-2 rounded-lg mr-4">
+                                <i class="fas fa-filter mr-2"></i> Фильтры
+                            </button>
+                            <span class="text-gray-600">Найдено: <span class="font-bold">24</span> отеля</span>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <span class="mr-3 text-gray-600">Сортировать:</span>
+                            <select class="bg-gray-100 border-0 rounded-lg px-4 py-2 focus:ring-2 focus:ring-primary">
+                                <option>По рейтингу (высокий)</option>
+                                <option>По рейтингу (низкий)</option>
+                                <option>По цене (низкая)</option>
+                                <option>По цене (высокая)</option>
+                                <option>По названию (А-Я)</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <!-- Ranking Criteria -->
+                    <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+                        <h2 class="text-2xl font-bold mb-4 font-display">Критерии отбора</h2>
+                        <p class="text-gray-600 mb-6">Наш рейтинг основан на оценках реальных гостей и учитывает следующие критерии:</p>
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                            <div class="flex items-center">
+                                <div class="feature-icon w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-star text-primary text-xl"></i>
+                                </div>
+                                <span>Качество сервиса</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="feature-icon w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-bed text-primary text-xl"></i>
+                                </div>
+                                <span>Комфорт номеров</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="feature-icon w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-utensils text-primary text-xl"></i>
+                                </div>
+                                <span>Питание</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="feature-icon w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-thumbs-up text-primary text-xl"></i>
+                                </div>
+                                <span>Соотношение цена/качество</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tabs -->
+                    <div class="flex overflow-x-auto mb-8 border-b">
+                        <button class="tab-active px-6 py-4 font-medium whitespace-nowrap">Все категории</button>
+                        <button class="px-6 py-4 text-gray-600 font-medium hover:text-primary transition whitespace-nowrap">5 звезд</button>
+                        <button class="px-6 py-4 text-gray-600 font-medium hover:text-primary transition whitespace-nowrap">4 звезды</button>
+                        <button class="px-6 py-4 text-gray-600 font-medium hover:text-primary transition whitespace-nowrap">3 звезды</button>
+                        <button class="px-6 py-4 text-gray-600 font-medium hover:text-primary transition whitespace-nowrap">Гостевые дома</button>
+                    </div>
+                    
+                    <!-- Hotels List -->
+                    <div id="top-hotel-list" class="bg-white rounded-xl shadow-lg overflow-hidden"></div>
+
+                    <!-- Top Hotel 1 -->                      
+                    <script>
+                        // hotels constant is now move to data/hotels.json
+                        // Use data/hotels.json for data
+
+                        async function renderHotels() {
+                            const container = document.getElementById('top-hotel-list');
+                            const templateResponse = await fetch('/templates/top-hotel-card.html');
+                            let template = await templateResponse.text();
+
+                            const dataResponse = await fetch('/data/hotels.json');
+                            const hotels = await dataResponse.json();
+
+                            hotels.slice(0, 4).forEach(hotel => {
+                                // Подставляем статичные поля
+                                let hotelHTML = template
+
+                                    .replace(/{{id}}/g, hotel.id)
+                                    .replace(/{{name}}/g, hotel.name)
+                                    .replace(/{{description}}/g, shortenDescription(hotel.description))
+                                    .replace(/{{slug}}/g, hotel.slug)
+                                    .replace(/{{address}}/g, hotel.address.street)
+                                    .replace(/{{fromCenter}}/g, hotel.fromCenter)
+                                    .replace(/{{ratingScore}}/g, hotel.rating)
+                                    .replace(/{{ratingText}}/g, hotel.ratingText || "")
+                                    .replace(/{{priceFrom}}/g, `от ${hotel.pricePerNight.min}`)
+                                    .replace(/{{featured}}/g, hotel.featured)
+                                    .replace(/{{distance}}/g, hotel.distance || "")
+                                    .replace(/{{reviews}}/g, hotel.reviews || "0")
+                                    .replace(/{{stars}}/g, "★".repeat(hotel.stars || 0))
+
+                                // Динамическая вставка отзывов (если в шаблоне есть {{reviews}})
+                                hotelHTML = hotelHTML.replace(/{{reviews}}/g, hotel.reviews || "0");
+
+                                // Вставка features (если в шаблоне нет шаблона для фич — вставляем вручную)
+                                const amenitiesHTML = hotel.amenities.map(f =>
+                                    `<span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">${f}</span>`
+                                ).join('');
+
+                                hotelHTML = hotelHTML.replace('{{features}}', amenitiesHTML);
+
+                                // Вместо вставки прямо в шаблон, можно например в placeholder {{features}} или добавлять в готовый html
+                                hotelHTML = hotelHTML.replace('{{mapEmbed}}', hotel.mapEmbed || '');
+
+
+                                container.insertAdjacentHTML('beforeend', hotelHTML);
+                            });
+                        }
+
+                        renderHotels();
+                    </script>
+                    <!-- How Rating Works -->
+                    <div class="bg-white rounded-xl shadow-lg p-8 mt-12">
+                        <h2 class="text-2xl font-bold mb-6 font-display">Как формируется наш рейтинг</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div>
+                                <p class="text-gray-700 mb-6">
+                                    Рейтинг лучших отелей Чеченской Республики основан на анализе тысяч отзывов реальных гостей. 
+                                    Мы учитываем не только общую оценку, но и отдельные аспекты пребывания:
+                                </p>
+                                <ul class="space-y-3 text-gray-700">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
+                                        <span>Чистота номеров и общественных зон</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
+                                        <span>Уровень комфорта и оснащенность номеров</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
+                                        <span>Качество питания в ресторанах отеля</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
+                                        <span>Профессионализм и отзывчивость персонала</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-primary mt=1 mr-3"></i>
+                                        <span>Соотношение цены и качества услуг</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <div class="bg-gray-100 rounded-xl p-6">
+                                    <h3 class="text-xl font-bold mb-4">Наши принципы</h3>
+                                    <p class="text-gray-700 mb-4">
+                                        <i class="fas fa-shield-alt text-primary mr-2"></i>
+                                        Мы проверяем все отзывы на подлинность
+                                    </p>
+                                    <p class="text-gray-700 mb-4">
+                                        <i class="fas fa-balance-scale text-primary mr-2"></i>
+                                        Отели не могут платить за повышение рейтинга
+                                    </p>
+                                    <p class="text-gray-700">
+                                        <i class="fas fa-sync-alt text-primary mr-2"></i>
+                                        Рейтинг обновляется еженедельно
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer" class="bg-dark text-white pt-16 pb-8">
+    </footer>
+    
+    <script>
+
+        // Simple script for mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.querySelector('.md\\:hidden');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            
+            if(mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+            
+            // Tab switching functionality
+            const tabs = document.querySelectorAll('.border-b button');
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    tabs.forEach(t => t.classList.remove('tab-active'));
+                    this.classList.add('tab-active');
+                });
+            });
+        });
+
+        // Make filter price range interactive
+        const slider = document.getElementById("priceRange");
+        const priceValue = document.getElementById("priceValue");
+
+        slider.addEventListener("input", () => {
+            priceValue.textContent = slider.value;
+            // Optionally: trigger filtering here
+        });
+    </script>
+    
+    <!-- Scripts -->
+    <script src="scripts.js"></script>
+</body>
+</html>
