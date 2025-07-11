@@ -102,7 +102,7 @@
                         <i class="fas fa-map-marker-alt text-primary text-xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3">Адрес</h3>
-                    <p class="text-gray-600 mb-2">г. Грозный, ул. Мира, д. 24</p>
+                    <p class="text-gray-600 mb-2">г. Грозный, ул. Али Митаева, д. 3</p>
                     <p class="text-gray-600">Чеченская Республика, Россия</p>
                 </div>
                 
@@ -184,11 +184,11 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                             <div>
                                 <label for="name" class="block text-gray-700 font-medium mb-2">Ваше имя</label>
-                                <input type="text" id="name" class="w-full form-input px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary" placeholder="Иван Иванов">
+                                <input type="text" id="name" class="w-full form-input px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary" placeholder="Адам Адамов">
                             </div>
                             <div>
                                 <label for="email" class="block text-gray-700 font-medium mb-2">Электронная почта</label>
-                                <input type="email" id="email" class="w-full form-input px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary" placeholder="example@mail.ru">
+                                <input type="email" id="email" class="w-full form-input px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary" placeholder="primer@mail.ru">
                             </div>
                         </div>
                         
@@ -282,7 +282,48 @@
             </div>
         </div>
     </section>
-
+    <script>
+        // FAQ Accordion
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.border-gray-200 button');
+            
+            faqItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const content = item.nextElementSibling;
+                    
+                    // Toggle content visibility
+                    content.classList.toggle('hidden');
+                    
+                    // Rotate icon
+                    const icon = item.querySelector('i');
+                    icon.classList.toggle('rotate-180');
+                });
+            });
+            
+            // Form validation
+            const contactForm = document.querySelector('form');
+            if(contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Get form values
+                    const name = document.getElementById('name').value;
+                    const email = document.getElementById('email').value;
+                    const consent = document.getElementById('consent').checked;
+                    
+                    // Simple validation
+                    if(!name || !email || !consent) {
+                        alert('Пожалуйста, заполните все обязательные поля и подтвердите согласие');
+                        return;
+                    }
+                    
+                    // In a real application, you would send the form data to a server
+                    alert('Спасибо за ваше сообщение! Мы свяжемся с вами в ближайшее время.');
+                    contactForm.reset();
+                });
+            }
+        });
+    </script>
     <!-- Footer -->
     <footer id="footer" class="bg-dark text-white pt-16 pb-8">
     </footer>
