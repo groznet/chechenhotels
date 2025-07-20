@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: #1e3a8a;
+    --color-secondary: #0f766e;
+    --color-accent: #f59e0b;
+    --color-light: #f8fafc;
+    --color-dark: #0f172a;
+  }
+}
+
+@layer utilities {
+  .bg-primary { background-color: var(--color-primary); }
+  .bg-secondary { background-color: var(--color-secondary); }
+  .bg-accent { background-color: var(--color-accent); }
+  .bg-light { background-color: var(--color-light); }
+  .bg-dark { background-color: var(--color-dark); }
+
+  .text-primary { color: var(--color-primary); }
+  .text-secondary { color: var(--color-secondary); }
+  .text-accent { color: var(--color-accent); }
+  .text-light { color: var(--color-light); }
+  .text-dark { color: var(--color-dark); }
+
+  .font-sans { font-family: 'Inter', sans-serif; }
+  .font-display { font-family: 'Montserrat', sans-serif; }
+}
