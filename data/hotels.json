@@ -51,13 +51,13 @@
       "Круглосуточная стойка регистрации",
       "Автостоянка / Парковка"
     ],
-    "featured": "/images/hotels/cosmos-selection/featured.jpg",
+    "featured": "/assets/images/hotels/cosmos-selection/featured.jpg",
     "images": [
-      "/images/hotels/cosmos-selection/gallery1.jpg",
-      "/images/hotels/cosmos-selection/gallery2.jpg",
-      "/images/hotels/cosmos-selection/gallery3.jpg",
-      "/images/hotels/cosmos-selection/gallery4.jpg",
-      "/images/hotels/cosmos-selection/gallery5.jpg"
+      "/assets/images/hotels/cosmos-selection/gallery1.jpg",
+      "/assets/images/hotels/cosmos-selection/gallery2.jpg",
+      "/assets/images/hotels/cosmos-selection/gallery3.jpg",
+      "/assets/images/hotels/cosmos-selection/gallery4.jpg",
+      "/assets/images/hotels/cosmos-selection/gallery5.jpg"
     ],
     "reviews": 499,
     "policies": {
@@ -121,13 +121,13 @@
       "Фитнес-зал",
       "Сигарная лаунж-зона"
     ],
-    "featured": "/images/hotels/the_local_hotels/featured.jpg",
+    "featured": "/assets/images/hotels/the_local_hotels/featured.jpg",
     "images": [
-      "/images/hotels/the_local_hotels/gallery1.jpg",
-      "/images/hotels/the_local_hotels/gallery2.jpg",
-      "/images/hotels/the_local_hotels/gallery3.jpg",
-      "/images/hotels/the_local_hotels/gallery4.jpg",
-      "/images/hotels/the_local_hotels/gallery5.jpg"
+      "/assets/images/hotels/the_local_hotels/gallery1.jpg",
+      "/assets/images/hotels/the_local_hotels/gallery2.jpg",
+      "/assets/images/hotels/the_local_hotels/gallery3.jpg",
+      "/assets/images/hotels/the_local_hotels/gallery4.jpg",
+      "/assets/images/hotels/the_local_hotels/gallery5.jpg"
     ],
     "reviews": 13,
     "policies": {
@@ -187,13 +187,13 @@
       "Автостоянка / Парковка",
       "Конференц-зал"
     ],
-    "featured": "/images/hotels/berkat_hotel/featured.jpg",
+    "featured": "/assets/images/hotels/berkat_hotel/featured.jpg",
     "images": [
-      "/images/hotels/berkat_hotel/gallery1.jpg",
-      "/images/hotels/berkat_hotel/gallery2.jpg",
-      "/images/hotels/berkat_hotel/gallery3.jpg",
-      "/images/hotels/berkat_hotel/gallery4.jpg",
-      "/images/hotels/berkat_hotel/gallery5.jpg"
+      "/assets/images/hotels/berkat_hotel/gallery1.jpg",
+      "/assets/images/hotels/berkat_hotel/gallery2.jpg",
+      "/assets/images/hotels/berkat_hotel/gallery3.jpg",
+      "/assets/images/hotels/berkat_hotel/gallery4.jpg",
+      "/assets/images/hotels/berkat_hotel/gallery5.jpg"
     ],
     "reviews": 121,
     "policies": {
@@ -255,13 +255,13 @@
       "Круглосуточная стойка регистрации",
       "Конференц-зал"
     ],
-    "featured": "/images/hotels/arena_city/featured.jpg",
+    "featured": "/assets/images/hotels/arena_city/featured.jpg",
     "images": [
-      "/images/hotels/arena_city/gallery1.jpg",
-      "/images/hotels/arena_city/gallery2.jpg",
-      "/images/hotels/arena_city/gallery3.jpg",
-      "/images/hotels/arena_city/gallery4.jpg",
-      "/images/hotels/arena_city/gallery5.jpg"
+      "/assets/images/hotels/arena_city/gallery1.jpg",
+      "/assets/images/hotels/arena_city/gallery2.jpg",
+      "/assets/images/hotels/arena_city/gallery3.jpg",
+      "/assets/images/hotels/arena_city/gallery4.jpg",
+      "/assets/images/hotels/arena_city/gallery5.jpg"
     ],
     "reviews": 171,
     "policies": {
@@ -317,13 +317,13 @@
       "Бар / Ресторан",
       "Сауна / SPA"
     ],
-    "featured": "/images/hotels/dona_hotel/featured.jpg",
+    "featured": "/assets/images/hotels/dona_hotel/featured.jpg",
     "images": [
-      "/images/hotels/dona_hotel/gallery1.jpg",
-      "/images/hotels/dona_hotel/gallery2.jpg",
-      "/images/hotels/dona_hotel/gallery3.jpg",
-      "/images/hotels/dona_hotel/gallery4.jpg",
-      "/images/hotels/dona_hotel/gallery5.jpg"
+      "/assets/images/hotels/dona_hotel/gallery1.jpg",
+      "/assets/images/hotels/dona_hotel/gallery2.jpg",
+      "/assets/images/hotels/dona_hotel/gallery3.jpg",
+      "/assets/images/hotels/dona_hotel/gallery4.jpg",
+      "/assets/images/hotels/dona_hotel/gallery5.jpg"
     ],
     "reviews": 1,
     "policies": {
@@ -381,13 +381,13 @@
       "Микроволновая печь",
       "Стиральная машина"
     ],
-    "featured": "/images/hotels/irs-guesthouse/featured.jpg",
+    "featured": "/assets/images/hotels/irs-guesthouse/featured.jpg",
     "images": [
-      "/images/hotels/irs-guesthouse/gallery1.jpg",
-      "/images/hotels/irs-guesthouse/gallery2.jpg",
-      "/images/hotels/irs-guesthouse/gallery3.jpg",
-      "/images/hotels/irs-guesthouse/gallery4.jpg",
-      "/images/hotels/irs-guesthouse/gallery5.jpg"
+      "/assets/images/hotels/irs-guesthouse/gallery1.jpg",
+      "/assets/images/hotels/irs-guesthouse/gallery2.jpg",
+      "/assets/images/hotels/irs-guesthouse/gallery3.jpg",
+      "/assets/images/hotels/irs-guesthouse/gallery4.jpg",
+      "/assets/images/hotels/irs-guesthouse/gallery5.jpg"
     ],
     "reviews": 13,
     "policies": {
@@ -439,11 +439,11 @@
     "amenitiesList": [
       "Вид на Арбат", "Можно с детьми", "Видеонаблюдение", "Персонал говорит на русском и английском"
     ],
-    "featured": "/images/hotels/nokhchostar/featured.jpg",
+    "featured": "/assets/images/hotels/nokhchostar/featured.jpg",
     "images": [
-      "/images/hotels/nokhchostar/gallery1.jpg",
-      "/images/hotels/nokhchostar/gallery2.jpg",
-      "/images/hotels/nokhchostar/gallery3.jpg"
+      "/assets/images/hotels/nokhchostar/gallery1.jpg",
+      "/assets/images/hotels/nokhchostar/gallery2.jpg",
+      "/assets/images/hotels/nokhchostar/gallery3.jpg"
     ],
     "reviews": 3,
     "policies": {
@@ -495,14 +495,14 @@
     "amenitiesList": [
       "Снэк-бар", "Доставка завтрака в номер", "Рабочие зоны", "Вежливый персонал"
     ],
-    "featured": "/images/hotels/central-city/featured.jpg",
+    "featured": "/assets/images/hotels/central-city/featured.jpg",
     "images": [
-      "/images/hotels/central-city/gallery1.jpg",
-      "/images/hotels/central-city/gallery2.jpg",
-      "/images/hotels/central-city/gallery3.jpg",
-      "/images/hotels/central-city/gallery4.jpg",
-      "/images/hotels/central-city/gallery5.jpg",
-      "/images/hotels/central-city/gallery6.jpg"
+      "/assets/images/hotels/central-city/gallery1.jpg",
+      "/assets/images/hotels/central-city/gallery2.jpg",
+      "/assets/images/hotels/central-city/gallery3.jpg",
+      "/assets/images/hotels/central-city/gallery4.jpg",
+      "/assets/images/hotels/central-city/gallery5.jpg",
+      "/assets/images/hotels/central-city/gallery6.jpg"
     ],
     "reviews": 428,
     "policies": {
@@ -554,10 +554,10 @@
     "amenitiesList": [
       "Сауна", "Бассейн", "Бар", "Ресторан", "Трансфер"
     ],
-    "featured": "/images/hotels/gorodok/featured.jpg",
+    "featured": "/assets/images/hotels/gorodok/featured.jpg",
     "images": [
-      "/images/hotels/gorodok/gallery1.jpg",
-      "/images/hotels/gorodok/gallery2.jpg"
+      "/assets/images/hotels/gorodok/gallery1.jpg",
+      "/assets/images/hotels/gorodok/gallery2.jpg"
     ],
     "reviews": 280,
     "policies": {
@@ -1109,13 +1109,13 @@
       "ЖК-телевизор",
       "Сауна / SPA"
     ],
-    "featured": "/images/hotels/tiynalla/featured.jpg",
+    "featured": "/assets/images/hotels/tiynalla/featured.jpg",
     "images": [
-      "/images/hotels/tiynalla/gallery1.jpg",
-      "/images/hotels/tiynalla/gallery2.jpg",
-      "/images/hotels/tiynalla/gallery3.jpg",
-      "/images/hotels/tiynalla/gallery4.jpg",
-      "/images/hotels/tiynalla/gallery5.jpg"
+      "/assets/images/hotels/tiynalla/gallery1.jpg",
+      "/assets/images/hotels/tiynalla/gallery2.jpg",
+      "/assets/images/hotels/tiynalla/gallery3.jpg",
+      "/assets/images/hotels/tiynalla/gallery4.jpg",
+      "/assets/images/hotels/tiynalla/gallery5.jpg"
     ],
     "reviews": 142,
     "policies": {},

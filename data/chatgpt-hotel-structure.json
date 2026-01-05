@@ -56,9 +56,9 @@
       }
     ],
     "images": [
-      "https://example.com/images/hotel_front.jpg",
-      "https://example.com/images/pool.jpg",
-      "https://example.com/images/room1.jpg"
+      "https://example.com/assets/images/hotel_front.jpg",
+      "https://example.com/assets/images/pool.jpg",
+      "https://example.com/assets/images/room1.jpg"
     ],
     "reviews": [
       {

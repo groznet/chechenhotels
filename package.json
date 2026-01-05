@@ -1,6 +1,20 @@
 {
-  "dependencies": {
-    "@tailwindcss/cli": "^4.1.11",
-    "tailwindcss": "^4.1.11"
-  }
+  "name": "chechenhotels",
+  "version": "1.0.0",
+  "description": "",
+  "main": "scripts.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/groznet/chechenhotels.git"
+  },
+  "keywords": [],
+  "author": "Kerim",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/groznet/chechenhotels/issues"
+  },
+  "homepage": "https://github.com/groznet/chechenhotels#readme"
 }
